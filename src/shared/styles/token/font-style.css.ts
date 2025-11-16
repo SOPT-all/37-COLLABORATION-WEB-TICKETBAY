@@ -40,7 +40,7 @@ export const fontStyles = {
     lineHeight: typography.lineHeight.normal,
     letterSpacing: typography.letterSpacing.none,
   },
-  body2_regualr: {
+  body2_regular: {
     fontSize: typography.fontSize[14],
     fontWeight: typography.fontWeight.regular,
     lineHeight: typography.lineHeight.normal,

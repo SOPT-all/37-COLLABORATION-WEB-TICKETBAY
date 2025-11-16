@@ -1,3 +1,1 @@
-import TestIcon from "../svg/test.svg?react";
-
-export { TestIcon };
+export { default as TestIcon } from "../svg/test.svg?react";

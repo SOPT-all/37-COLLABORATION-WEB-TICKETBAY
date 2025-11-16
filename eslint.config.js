@@ -35,7 +35,6 @@ export default defineConfig([
       "no-console": "warn",
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_|^args$" }],
-      "react/react-in-jsx-scope": "off",
       "simple-import-sort/imports": [
         "error",
         {

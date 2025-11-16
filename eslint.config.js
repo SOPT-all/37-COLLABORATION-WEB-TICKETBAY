@@ -27,6 +27,32 @@ export default defineConfig([
     },
     rules: {
       'prettier/prettier': 'error',
+      curly: ['error', 'all'],
+      'no-console': 'warn',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_|^args$' },
+      ],
+      'react/react-in-jsx-scope': 'off',
+      'simple-import-sort/imports': [
+        'error',
+        {
+          groups: [
+            ['^node:'],
+            ['^react$', '^@?\\w'],
+            ['^@app/'],
+            ['^@assets/'],            
+            ['^@pages/'],
+            ['^@widgets/'],
+            ['^@shared/'],
+            ['^\\u0000'],
+            ['^\\.'],
+            ['^.+\\.css$'],
+          ],
+        },
+      ],
+      'simple-import-sort/exports': 'error',
     },
   },
 ])

@@ -1,8 +1,4 @@
-import {
-  HomePage,
-  SelectTicketPage,
-  TicketDetailPage,
-} from "@shared/router/lazy";
+import { HomePage, SelectTicketPage, TicketDetailPage } from "@shared/router/lazy";
 import { ROUTE_PATH } from "@shared/router/path";
 
 export const globalRoutes = [

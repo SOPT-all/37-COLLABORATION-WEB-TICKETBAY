@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+
 import "../styles/reset.css";
 import { themeClass } from "./theme.css";
 
@@ -11,7 +12,5 @@ export default function ThemeProvider({
   theme?: string;
   className?: string;
 }) {
-  return (
-    <div className={`${theme ?? themeClass} ${className}`}>{children}</div>
-  );
+  return <div className={`${theme ?? themeClass} ${className}`}>{children}</div>;
 }

@@ -1,3 +1,3 @@
-import TimeIcon from "../svg/time.svg?react";
+import TestIcon from "../svg/test.svg?react";
 
-export { TimeIcon };
+export { TestIcon };

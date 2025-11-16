@@ -1,5 +1,19 @@
+import { router } from "@shared/router/router";
+import { RouterProvider } from "react-router";
+
 function App() {
-  return <div>티켓베이 파이팅~</div>;
+  return (
+    // @TODO: global 테마 추가
+    // <ThemeProvider>
+
+    // @TODO: 쿼리 클라이언트 추가
+    // <QueryClientProvider client={queryClient}>
+    <RouterProvider router={router} />
+    // <ReactQueryDevtools initialIsOpen={false} />
+    // </QueryClientProvider>
+
+    // </ThemeProvider>
+  );
 }
 
 export default App;

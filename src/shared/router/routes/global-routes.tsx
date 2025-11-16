@@ -3,19 +3,19 @@ import {
   SelectTicketPage,
   TicketDetailPage,
 } from "@shared/router/lazy";
-import { routePath } from "@shared/router/path";
+import { ROUTE_PATH } from "@shared/router/path";
 
 export const globalRoutes = [
   {
-    path: routePath.HOME,
+    path: ROUTE_PATH.HOME,
     element: <HomePage />,
   },
   {
-    path: routePath.SELECT_TICKET,
+    path: ROUTE_PATH.SELECT_TICKET,
     element: <SelectTicketPage />,
   },
   {
-    path: routePath.TICKET_DETAIL,
+    path: ROUTE_PATH.TICKET_DETAIL,
     element: <TicketDetailPage />,
   },
 ];

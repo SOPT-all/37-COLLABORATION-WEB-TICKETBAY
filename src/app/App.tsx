@@ -1,11 +1,10 @@
 import { router } from "@shared/router/router";
-import { rootStyle } from "@shared/styles/global.css";
 import ThemeProvider from "@shared/styles/theme-provider";
 import { RouterProvider } from "react-router";
 
 function App() {
   return (
-    <ThemeProvider className={rootStyle}>
+    <ThemeProvider>
       {/* @TODO: 쿼리 클라이언트 추가 */}
       {/* <QueryClientProvider client={queryClient}> */}
       <RouterProvider router={router} />

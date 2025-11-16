@@ -1,5 +1,9 @@
+import { useParams } from "react-router";
+
 const TicketDetail = () => {
-  return <div>TicketDetail</div>;
+  const { ticketId } = useParams();
+
+  return <div>TicketDetail-{ticketId}</div>;
 };
 
 export default TicketDetail;

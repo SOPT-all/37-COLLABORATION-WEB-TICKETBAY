@@ -5,6 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import prettier from 'eslint-config-prettier'
 import prettierPlugin from 'eslint-plugin-prettier'
+import importPlugin from 'eslint-plugin-import'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
@@ -21,6 +22,7 @@ export default defineConfig([
     ],
     plugins: {
       prettier: prettierPlugin,
+      import: importPlugin,
       'simple-import-sort': simpleImportSort,
     },
     languageOptions: {
@@ -54,6 +56,7 @@ export default defineConfig([
         },
       ],
       'simple-import-sort/exports': 'error',
+      'import/first': 'error',
     },
   },
 ])

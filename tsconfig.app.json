@@ -29,8 +29,8 @@
     // 절대경로 세팅 위치
     // "paths": {
     //   "@pages/*": ["src/pages/*"],
-    //   "@routes/*": ["src/routes/*"],
     //   "@shared/*": ["src/shared/*"]
+    //   "@widgets/*": ["src/widgets/*"],
     // }
   },
   "include": ["src"]

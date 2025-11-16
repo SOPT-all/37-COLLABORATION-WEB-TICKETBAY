@@ -1,4 +1,4 @@
-import { TimeIcon } from "@assets/icons "
+import { TimeIcon } from "@assets/icons"
 
 function App() {
   return (

@@ -12,6 +12,6 @@ export const color = {
   primary: "#EB005A",
   secondary: "#FFDEF2",
 
-  action1: "#F1494B",
-  action2: "#FFCF5C",
+  semantic: "#F1494B",
+  yellow: "#FFCF5C",
 };

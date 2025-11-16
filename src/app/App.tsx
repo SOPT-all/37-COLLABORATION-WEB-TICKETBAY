@@ -1,18 +1,17 @@
 import { router } from "@shared/router/router";
+import { rootStyle } from "@shared/styles/global.css";
+import ThemeProvider from "@shared/styles/theme-provider";
 import { RouterProvider } from "react-router";
 
 function App() {
   return (
-    // @TODO: global 테마 추가
-    // <ThemeProvider>
-
-    // @TODO: 쿼리 클라이언트 추가
-    // <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
-    // <ReactQueryDevtools initialIsOpen={false} />
-    // </QueryClientProvider>
-
-    // </ThemeProvider>
+    <ThemeProvider className={rootStyle}>
+      {/* @TODO: 쿼리 클라이언트 추가 */}
+      {/* <QueryClientProvider client={queryClient}> */}
+      <RouterProvider router={router} />
+      {/* <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider> */}
+    </ThemeProvider>
   );
 }
 

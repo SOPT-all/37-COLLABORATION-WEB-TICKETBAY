@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { useNavigate } from "react-router";
 
 import * as styles from "./navigation.css";
 
@@ -7,25 +6,29 @@ interface Props {
   title: string;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
+  leftAction?: () => void;
   rightAction?: () => void;
 }
 
-const Navigation = ({ title, leftIcon, rightIcon, rightAction }: Props) => {
-  const navigate = useNavigate();
-  const handleLeftClick = () => {
-    navigate(-1);
-  };
-
+const Navigation = ({ title, leftIcon, rightIcon, leftAction, rightAction }: Props) => {
   return (
-    <header className={styles.container}>
-      <button className={styles.Icon} onClick={handleLeftClick}>
-        {leftIcon}
-      </button>
+    <nav className={styles.container}>
+      <div className={styles.leftSection}>
+        {leftIcon && (
+          <button className={styles.Icon} onClick={leftAction}>
+            {leftIcon}
+          </button>
+        )}
+      </div>
       <h1 className={styles.title}>{title}</h1>
-      <button className={styles.Icon} onClick={rightAction}>
-        {rightIcon}
-      </button>
-    </header>
+      <div className={styles.rightSection}>
+        {rightIcon && (
+          <button className={styles.Icon} onClick={rightAction}>
+            {rightIcon}
+          </button>
+        )}
+      </div>
+    </nav>
   );
 };
 

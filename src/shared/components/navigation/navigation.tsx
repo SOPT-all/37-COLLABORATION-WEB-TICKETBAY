@@ -15,7 +15,7 @@ const Navigation = ({ title, leftIcon, rightIcon, leftAction, rightAction }: Pro
     <nav className={styles.container}>
       <div className={styles.leftSection}>
         {leftIcon && (
-          <button className={styles.Icon} onClick={leftAction}>
+          <button className={styles.Icon} type="button" onClick={leftAction}>
             {leftIcon}
           </button>
         )}
@@ -23,7 +23,7 @@ const Navigation = ({ title, leftIcon, rightIcon, leftAction, rightAction }: Pro
       <h1 className={styles.title}>{title}</h1>
       <div className={styles.rightSection}>
         {rightIcon && (
-          <button className={styles.Icon} onClick={rightAction}>
+          <button className={styles.Icon} type="button" onClick={rightAction}>
             {rightIcon}
           </button>
         )}

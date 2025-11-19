@@ -66,9 +66,10 @@ export const dropdownList = style({
   display: "flex",
   flexDirection: "column",
   width: "21.5rem",
-  minWidth: "100%",
   backgroundColor: themeVars.color.grayscale9,
+  border: `1px solid ${themeVars.color.grayscale7}`,
   borderRadius: "14px",
+  overflow: "hidden",
   zIndex: themeVars.zIndex.dropdown,
 });
 
@@ -81,6 +82,7 @@ export const dropdownFirstItem = style({
   borderBottom: `1px solid ${themeVars.color.grayscale7}`,
   cursor: "pointer",
   width: "100%",
+  height: "4.2rem",
 });
 
 export const dropdownItemIcon = style({
@@ -91,12 +93,18 @@ export const dropdownItem = style({
   display: "flex",
   alignItems: "center",
   gap: "0.4rem",
-  padding: "1rem 2.8rem",
+  padding: "1rem 2.7rem",
   backgroundColor: themeVars.color.grayscale9,
   border: "none",
   borderBottom: `1px solid ${themeVars.color.grayscale7}`,
   cursor: "pointer",
   width: "100%",
+  height: "4.2rem",
+  selectors: {
+    "&:last-child": {
+      borderBottom: "none",
+    },
+  },
 });
 
 export const dropdownItemLabel = style({

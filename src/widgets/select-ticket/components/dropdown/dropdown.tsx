@@ -37,7 +37,6 @@ const Dropdown = ({ label, options }: Props) => {
   const displayText = selectedOption && formatDateLabel(selectedOption.label);
   const hasDisplayText = isSelected && displayText;
 
-  // ref 등록
   useEffect(() => {
     registerRef(label, containerRef.current);
     return () => {

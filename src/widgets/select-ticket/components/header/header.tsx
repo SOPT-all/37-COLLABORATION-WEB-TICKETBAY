@@ -9,13 +9,13 @@ interface Props {
 
 const Header = ({ eventTitle, stadiumName }: Props) => {
   return (
-    <h1 className={styles.container}>
+    <header className={styles.container}>
       <button type="button" className={styles.titleButton}>
         <p className={styles.eventTitleText}>{eventTitle}</p>
         <ChevronSmallDownIcon width={24} height={24} className={styles.Icon} />
       </button>
       <p className={styles.stadiumName}>{stadiumName}</p>
-    </h1>
+    </header>
   );
 };
 

@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
 import { themeVars } from "@shared/styles/theme.css";
 import { zIndex } from "@shared/styles/token/z-index.css";
@@ -23,22 +24,22 @@ export const container = style({
   backgroundColor: themeVars.color.grayscale8,
 });
 
-// 공통 아이템
-const baseItem = {
-  flex: 1,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-};
-
-// 활성 탭
-export const itemActive = style({
-  ...baseItem,
-  opacity: 1,
-});
-
-// 비활성 탭
-export const itemInactive = style({
-  ...baseItem,
-  opacity: 0.4,
+// li 기본 스타일 + 활성 상태
+export const baseItem = recipe({
+  base: {
+    flex: 1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  variants: {
+    isItemActive: {
+      true: {
+        opacity: 1,
+      },
+      false: {
+        opacity: 0.4,
+      },
+    },
+  },
 });

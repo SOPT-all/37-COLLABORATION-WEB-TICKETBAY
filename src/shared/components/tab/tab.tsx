@@ -1,5 +1,7 @@
-import { useState, type ReactNode } from "react";
+import { type ReactNode, useState } from "react";
+
 import { TabContext, useTabContext } from "./tab-context";
+
 import * as styles from "./tab.css";
 
 const Container = ({ initialValue, children }: { initialValue: string; children: ReactNode }) => {
@@ -39,7 +41,9 @@ const Item = ({ value, children }: { value: string; children: ReactNode }) => {
 const Panel = ({ tab, children }: { tab: string; children: ReactNode }) => {
   const { selectedTab } = useTabContext();
 
-  if (selectedTab !== tab) return null;
+  if (selectedTab !== tab) {
+    return null;
+  }
 
   return <>{children}</>;
 };

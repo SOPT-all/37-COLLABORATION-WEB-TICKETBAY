@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
 import { themeVars } from "@shared/styles/theme.css";
-import { recipe } from "@vanilla-extract/recipes";
 
 export const list = style({
   display: "flex",

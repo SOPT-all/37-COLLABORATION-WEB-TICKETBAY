@@ -21,7 +21,6 @@ export const container = recipe({
         width: "12.5rem",
         height: "4.4rem",
         padding: "1.2rem 1.2rem",
-        gap: "0.7rem",
         borderRadius: "8px",
       },
     },

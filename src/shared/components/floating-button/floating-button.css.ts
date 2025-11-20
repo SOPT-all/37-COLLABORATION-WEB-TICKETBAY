@@ -12,7 +12,7 @@ export const floatingButton = style({
   padding: "0.75rem",
   alignItems: "center",
   gap: "0.625rem",
-  borderRadius: "1.28125rem",
+  borderRadius: "20.5px",
   background: themeVars.color.grayscale1,
   aspectRatio: "1/1",
   cursor: "pointer",

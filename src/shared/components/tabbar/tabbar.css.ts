@@ -5,8 +5,6 @@ import { themeVars } from "@shared/styles/theme.css";
 export const wrapper = style({
   position: "fixed",
   bottom: 0,
-  left: "50%",
-  transform: "translateX(-50%)",
   width: "100%",
   minWidth: "var(--min-width)",
   maxWidth: "var(--max-width)",
@@ -16,8 +14,6 @@ export const wrapper = style({
 // TabBar 레이아웃
 export const container = style({
   width: "100%",
-  boxSizing: "border-box",
-  margin: 0,
   padding: "0.8rem 1.6rem 1.2rem",
   listStyle: "none",
 

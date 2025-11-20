@@ -16,13 +16,10 @@ export const container = style({
   width: "100%",
   padding: "0.8rem 1.6rem 1.6rem",
   listStyle: "none",
-
   display: "flex",
   alignItems: "center",
   gap: "2.3rem",
-
-  backgroundColor: "#F8F9FA",
-  borderTop: `1px solid ${themeVars.color.grayscale7}`,
+  backgroundColor: themeVars.color.grayscale8,
 });
 
 // 공통 아이템

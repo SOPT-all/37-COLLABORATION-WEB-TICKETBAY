@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
 import { themeVars } from "@shared/styles/theme.css";
+import { zIndex } from "@shared/styles/token/z-index.css";
 
 export const wrapper = style({
   position: "fixed",
@@ -8,7 +9,7 @@ export const wrapper = style({
   width: "100%",
   minWidth: "var(--min-width)",
   maxWidth: "var(--max-width)",
-  zIndex: 99,
+  zIndex: zIndex.tabbar,
 });
 
 // TabBar 레이아웃

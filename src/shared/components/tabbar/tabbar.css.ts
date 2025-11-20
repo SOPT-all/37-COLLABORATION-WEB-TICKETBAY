@@ -14,12 +14,12 @@ export const wrapper = style({
 // TabBar 레이아웃
 export const container = style({
   width: "100%",
-  padding: "0.8rem 1.6rem 1.2rem",
+  padding: "0.8rem 1.6rem 1.6rem",
   listStyle: "none",
 
   display: "flex",
   alignItems: "center",
-  justifyContent: "space-between",
+  gap: "2.3rem",
 
   backgroundColor: "#F8F9FA",
   borderTop: `1px solid ${themeVars.color.grayscale7}`,

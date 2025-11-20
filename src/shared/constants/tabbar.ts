@@ -15,3 +15,4 @@ export const TABS = [
 ] as const;
 
 export type TabId = (typeof TABS)[number]["id"];
+export type TabItem = (typeof TABS)[number];

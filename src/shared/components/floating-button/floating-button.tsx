@@ -1,11 +1,11 @@
-import { HelpIcon } from "@assets/icons";
+import { FabIcon } from "@assets/icons";
 
 import * as styles from "./floating-button.css";
 
 const FloatingButton = () => {
   return (
     <button type="button" className={styles.floatingButton}>
-      <HelpIcon width={17} height={17} />
+      <FabIcon className={styles.icon} />
     </button>
   );
 };

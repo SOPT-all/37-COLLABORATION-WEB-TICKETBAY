@@ -4,6 +4,11 @@ import { TabContext, useTabContext } from "./tab-context";
 
 import * as styles from "./tab.css";
 
+interface TabValueProps {
+  value: string;
+  children: ReactNode;
+}
+
 const Container = ({ initialValue, children }: { initialValue: string; children: ReactNode }) => {
   const [selectedTab, setSelectedTab] = useState(initialValue);
 
@@ -20,7 +25,7 @@ const List = ({ children }: { children: ReactNode }) => {
   );
 };
 
-const Item = ({ value, children }: { value: string; children: ReactNode }) => {
+const Item = ({ value, children }: TabValueProps) => {
   const { selectedTab, setSelectedTab } = useTabContext();
 
   const isActive = selectedTab === value;
@@ -38,10 +43,10 @@ const Item = ({ value, children }: { value: string; children: ReactNode }) => {
   );
 };
 
-const Panel = ({ tab, children }: { tab: string; children: ReactNode }) => {
+const Panel = ({ value, children }: TabValueProps) => {
   const { selectedTab } = useTabContext();
 
-  if (selectedTab !== tab) {
+  if (selectedTab !== value) {
     return null;
   }
 

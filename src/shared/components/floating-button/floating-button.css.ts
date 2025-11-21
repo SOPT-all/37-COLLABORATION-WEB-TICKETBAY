@@ -4,14 +4,14 @@ import { themeVars } from "@shared/styles/theme.css";
 
 const baseButton = style({
   position: "absolute",
-  right: "2.9rem", 
+  right: "2.9rem",
   display: "flex",
-  width: "2.625rem",
-  height: "2.625rem",
-  padding: "1.2rem", 
+  width: "4.2rem",
+  height: "4.2rem",
+  padding: "1.2rem",
   alignItems: "center",
   justifyContent: "center",
-  gap: "0.625rem",
+  gap: "1.2rem",
   borderRadius: "20.5px",
   aspectRatio: "1/1",
   cursor: "pointer",
@@ -28,7 +28,7 @@ const baseButton = style({
 export const floatingButtonTop = style([
   baseButton,
   {
-    bottom: "9.2rem",
+    bottom: "15.2rem",
     background: themeVars.color.grayscale9,
     color: themeVars.color.grayscale1,
   },
@@ -37,7 +37,7 @@ export const floatingButtonTop = style([
 export const floatingButtonHelp = style([
   baseButton,
   {
-    bottom: "9.2rem", 
+    bottom: "9.2rem",
     background: themeVars.color.grayscale1,
     color: themeVars.color.grayscale9,
   },
@@ -57,7 +57,13 @@ export const floatingButtonContainer = style({
   zIndex: 50,
 });
 
-export const icon = style({
+export const iconTop = style({
+  width: "24px",
+  height: "24px",
+  flexShrink: 0,
+});
+
+export const iconHelp = style({
   width: "17px",
   height: "17px",
   flexShrink: 0,

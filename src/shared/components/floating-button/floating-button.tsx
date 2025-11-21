@@ -17,7 +17,7 @@ const FloatingButton = () => {
         aria-label="최상단으로 이동"
         style={{ pointerEvents: "auto" }}
       >
-        <ChevronBigTopIcon className={styles.icon} />
+        <ChevronBigTopIcon className={styles.iconTop} />
       </button>
 
       {/* 아래 버튼: 고객센터 문의 */}
@@ -27,7 +27,7 @@ const FloatingButton = () => {
         aria-label="1:1 문의하기"
         style={{ pointerEvents: "auto" }}
       >
-        <FabIcon className={styles.icon} />
+        <FabIcon className={styles.iconHelp} />
       </button>
     </div>
   );

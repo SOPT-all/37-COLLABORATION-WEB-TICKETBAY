@@ -1,13 +1,38 @@
 import { useEffect, useRef } from "react";
 
+/**
+ * 바텀시트 드래그 훅에 전달되는 레이아웃 정보입니다.
+ *
+ * - `navigationHeight`: 상단 네비게이션 높이 (px)
+ * - `headerHeight`: 네비게이션 바로 아래 헤더 높이 (px)
+ * - `maxTranslate`: 바텀시트가 아래로 최대 내려갈 거리 (px, 보통 이미지 높이)
+ */
 interface BottomSheetDragOptions {
   navigationHeight: number;
   headerHeight: number;
   maxTranslate: number;
 }
 
-const MIN_DRAG_DISTANCE = 10; // 드래그로 인식할 최소 이동 거리(px)
+/**
+ * 드래그 시작 시점의 스냅샷 좌표를 저장하기 위한 메트릭입니다.
+ *
+ * - `sheetY`: 드래그 시작 시 바텀시트의 translateY 값
+ * - `touchY`: 드래그를 시작한 터치/마우스의 Y 좌표
+ */
+interface DragMetrics {
+  sheetY: number;
+  touchY: number;
+}
 
+// 드래그로 인식할 최소 이동 거리(px)
+const MIN_DRAG_DISTANCE = 10;
+
+/**
+ * 헤더로만 드래그되고, content 영역은 스크롤되는 바텀시트 동작을 제공하는 훅입니다.
+ *
+ * 사용처에서는 `sheetRef`, `headerRef`, `contentRef`를 각 DOM 요소에 연결만 해주면 됩니다.
+ * 드래그/스냅/스크롤 관련 이벤트 등록과 바디 스크롤 잠금은 모두 이 훅 내부에서 처리합니다.
+ */
 const useBottomSheetDrag = ({
   navigationHeight,
   headerHeight,
@@ -24,7 +49,7 @@ const useBottomSheetDrag = ({
   const MIN_TRANSLATE = 0; // 완전히 올라온 상태
   const MAX_TRANSLATE = maxTranslate; // 최대 내려간 상태
 
-  const metrics = useRef<{ sheetY: number; touchY: number }>({
+  const metrics = useRef<DragMetrics>({
     sheetY: 0,
     touchY: 0,
   });

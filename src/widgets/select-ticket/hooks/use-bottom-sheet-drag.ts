@@ -49,6 +49,7 @@ const useBottomSheetDrag = ({
   const MIN_TRANSLATE = 0; // 완전히 올라온 상태
   const MAX_TRANSLATE = maxTranslate; // 최대 내려간 상태
 
+  // 드래그 시작 시점의 바텀시트/포인터 위치 스냅샷
   const metrics = useRef<DragMetrics>({
     sheetY: 0,
     touchY: 0,

@@ -1,8 +1,7 @@
 import { useState } from "react";
 
+import CategoryIcon from "@shared/components/category-icon/category-icon";
 import { type TabId, type TabItem, TABS } from "@shared/constants/tabbar";
-
-import CategoryIcon from "../category-icon/category-icon";
 
 import * as styles from "./tabbar.css";
 

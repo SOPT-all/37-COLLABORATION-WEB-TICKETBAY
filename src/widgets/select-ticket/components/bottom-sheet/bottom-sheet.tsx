@@ -4,7 +4,7 @@ import useBottomSheetDrag from "@widgets/select-ticket/hooks/use-bottom-sheet-dr
 
 import * as styles from "./bottom-sheet.css";
 
-const STADIUM_IMAGE_URL = "/stadium.svg";
+const STADIUM_IMAGE_URL = "/stadium.webp";
 
 const NAVIGATION_HEIGHT = 48;
 const HEADER_HEIGHT = 61;

@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Outlet, ScrollRestoration } from "react-router";
 
-import { TabBar } from "@shared/components/tabbar";
+import TabBar from "@shared/components/tabbar/tabbar";
 
 import { rootStyle } from "@shared/styles/global.css";
 

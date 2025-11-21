@@ -4,11 +4,11 @@ import { themeVars } from "@shared/styles/theme.css";
 
 const baseButton = style({
   position: "absolute",
-  right: "1.8125rem",
+  right: "2.9rem", 
   display: "flex",
   width: "2.625rem",
   height: "2.625rem",
-  padding: "0.75rem",
+  padding: "1.2rem", 
   alignItems: "center",
   justifyContent: "center",
   gap: "0.625rem",
@@ -28,7 +28,7 @@ const baseButton = style({
 export const floatingButtonTop = style([
   baseButton,
   {
-    bottom: "12.6875rem", 
+    bottom: "9.2rem",
     background: themeVars.color.grayscale9,
     color: themeVars.color.grayscale1,
   },
@@ -37,7 +37,7 @@ export const floatingButtonTop = style([
 export const floatingButtonHelp = style([
   baseButton,
   {
-    bottom: "8.1875rem",
+    bottom: "9.2rem", 
     background: themeVars.color.grayscale1,
     color: themeVars.color.grayscale9,
   },

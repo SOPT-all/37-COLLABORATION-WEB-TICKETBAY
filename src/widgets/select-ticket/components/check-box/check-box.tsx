@@ -12,11 +12,10 @@ const CheckBox = () => {
 
   return (
     <button type="button" onClick={handleCheckBoxClick}>
-      {isChecked ? (
+      {isChecked && (
         <CheckedBoxIcon width={14} height={14} className={styles.icon({ isChecked })} />
-      ) : (
-        <CheckBoxIcon width={14} height={14} className={styles.icon({ isChecked })} />
       )}
+      {!isChecked && <CheckBoxIcon width={14} height={14} className={styles.icon({ isChecked })} />}
     </button>
   );
 };

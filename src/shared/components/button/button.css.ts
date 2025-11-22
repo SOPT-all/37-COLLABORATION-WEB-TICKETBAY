@@ -2,9 +2,9 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import { themeVars } from "@shared/styles/theme.css";
 
-// 버튼 스타일 통합
 export const button = recipe({
   base: {
+    width: "100%",
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -20,6 +20,7 @@ export const button = recipe({
       },
     },
   },
+
   variants: {
     color: {
       default: {
@@ -31,6 +32,7 @@ export const button = recipe({
         color: themeVars.color.grayscale2,
       },
     },
+
     size: {
       buy: [
         themeVars.fontStyles.body2_medium,
@@ -49,14 +51,10 @@ export const button = recipe({
         },
       ],
     },
-    fullWidth: {
-      true: { width: themeVars.width.full },
-      false: {},
-    },
   },
+
   defaultVariants: {
     color: "default",
     size: "buy",
-    fullWidth: false,
   },
 });

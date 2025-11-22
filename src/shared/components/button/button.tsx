@@ -8,7 +8,6 @@ type ButtonSize = "buy" | "ticketbayGlobal";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: ButtonColor;
   size?: ButtonSize;
-  fullWidth?: boolean;
   rightIcon?: ReactNode;
   children: ReactNode;
   className?: string;
@@ -17,15 +16,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = ({
   color = "default",
   size = "buy",
-  fullWidth = false,
   rightIcon,
   children,
   className,
   ...rest
 }: ButtonProps) => {
-  const composedClassName = [styles.button({ color, size, fullWidth }), className]
-    .filter(Boolean)
-    .join(" ");
+  const composedClassName = [styles.button({ color, size }), className].filter(Boolean).join(" ");
 
   return (
     <button type="button" className={composedClassName} {...rest}>

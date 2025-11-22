@@ -22,11 +22,11 @@ export const button = recipe({
   },
   variants: {
     color: {
-      primary: {
+      default: {
         backgroundColor: themeVars.color.grayscale1,
         color: themeVars.color.grayscale9,
       },
-      secondary: {
+      subtle: {
         backgroundColor: themeVars.color.grayscale8,
         color: themeVars.color.grayscale2,
       },
@@ -55,7 +55,7 @@ export const button = recipe({
     },
   },
   defaultVariants: {
-    color: "primary",
+    color: "default",
     size: "buy",
     fullWidth: false,
   },

@@ -21,7 +21,7 @@ export const Button = ({
     .join(" ");
 
   return (
-    <button className={classNames} {...rest}>
+    <button className={classNames} {...rest} type="button">
       {children}
     </button>
   );

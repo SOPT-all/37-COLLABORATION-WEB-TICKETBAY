@@ -1,6 +1,6 @@
 import { type RefObject, useEffect, useLayoutEffect, useState } from "react";
 
-import { DROPDOWN_POSITION } from "../constants/dropdown-position";
+import { DROPDOWN_POSITION } from "@widgets/select-ticket/constants/dropdown-position";
 
 interface DropdownPosition {
   top: number;
@@ -46,17 +46,25 @@ export const useDropdownPosition = (
       const viewportWidth = window.innerWidth;
       const containerWidth = Math.min(viewportWidth, ROOT_MAX_WIDTH);
 
-      // 드롭다운이 화면 밖으로 나가는지 체크합니다.
-      let left = rect.left;
-      const maxLeft = containerWidth - DROPDOWN_WIDTH - BOTTOM_SHEET_PADDING;
+      // root 컨테이너가 가운데 정렬되어 있을 때의 왼쪽 마진 계산
+      // 데스크톱처럼 viewportWidth > ROOT_MAX_WIDTH인 경우를 고려
+      const rootLeftOffset = (viewportWidth - containerWidth) / 2;
 
-      if (left + DROPDOWN_WIDTH > containerWidth - BOTTOM_SHEET_PADDING) {
+      // 드롭다운이 화면 밖으로 나가는지 체크합니다.
+      // rect.left는 뷰포트 기준이므로 root 컨테이너 기준으로 변환
+      let left = rect.left;
+      // root 컨테이너의 오른쪽 경계에서 드롭다운 너비와 padding을 뺀 값
+      const maxLeft = rootLeftOffset + containerWidth - DROPDOWN_WIDTH - BOTTOM_SHEET_PADDING;
+      // root 컨테이너의 왼쪽 경계에서 padding을 더한 값
+      const minLeft = rootLeftOffset + BOTTOM_SHEET_PADDING;
+
+      if (left + DROPDOWN_WIDTH > rootLeftOffset + containerWidth - BOTTOM_SHEET_PADDING) {
         // 오른쪽으로 넘어가면 왼쪽으로 조정합니다.
         left = maxLeft;
       }
       // 왼쪽으로 넘어가면 padding만큼 여백 유지합니다.
-      if (left < BOTTOM_SHEET_PADDING) {
-        left = BOTTOM_SHEET_PADDING;
+      if (left < minLeft) {
+        left = minLeft;
       }
 
       return {

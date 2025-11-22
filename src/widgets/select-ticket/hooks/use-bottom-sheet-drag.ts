@@ -43,11 +43,12 @@ const useBottomSheetDrag = ({
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   // 바텀시트가 차지하는 영역의 시작 지점 (Navigation + Header 높이)
-  const BOTTOM_SHEET_START_Y = navigationHeight + headerHeight;
-
-  // translateY 기준 최소/최대 값 (위쪽이 0, 아래로 내려갈수록 +)
-  const MIN_TRANSLATE = 0; // 완전히 올라온 상태
-  const MAX_TRANSLATE = maxTranslate; // 최대 내려간 상태
+  // 옵션 값이 변경될 일이 거의 없으므로 useRef에 저장하여 마운트 시 한 번만 등록
+  const optionsRef = useRef({
+    BOTTOM_SHEET_START_Y: navigationHeight + headerHeight,
+    MIN_TRANSLATE: 0, // 완전히 올라온 상태
+    MAX_TRANSLATE: maxTranslate, // 최대 내려간 상태
+  });
 
   // 드래그 시작 시점의 바텀시트/포인터 위치 스냅샷
   const metrics = useRef<DragMetrics>({
@@ -71,7 +72,7 @@ const useBottomSheetDrag = ({
       const metric = metrics.current;
       const rectY = sheetRef.current.getBoundingClientRect().y;
       // 현재 translateY = 실제 Y좌표 - BOTTOM_SHEET_START_Y
-      metric.sheetY = rectY - BOTTOM_SHEET_START_Y;
+      metric.sheetY = rectY - optionsRef.current.BOTTOM_SHEET_START_Y;
       metric.touchY = startY;
 
       // body 스크롤 방지
@@ -96,11 +97,11 @@ const useBottomSheetDrag = ({
       let nextTranslateY = sheetY + offset;
 
       // 범위 제한
-      if (nextTranslateY < MIN_TRANSLATE) {
-        nextTranslateY = MIN_TRANSLATE;
+      if (nextTranslateY < optionsRef.current.MIN_TRANSLATE) {
+        nextTranslateY = optionsRef.current.MIN_TRANSLATE;
       }
-      if (nextTranslateY > MAX_TRANSLATE) {
-        nextTranslateY = MAX_TRANSLATE;
+      if (nextTranslateY > optionsRef.current.MAX_TRANSLATE) {
+        nextTranslateY = optionsRef.current.MAX_TRANSLATE;
       }
 
       sheetRef.current.style.setProperty("transform", `translateY(${nextTranslateY}px)`);
@@ -134,17 +135,23 @@ const useBottomSheetDrag = ({
         sheetRef.current.style.setProperty("transition", "transform 0.3s ease-out");
 
         const currentSheetY = sheetRef.current.getBoundingClientRect().y;
-        const currentTranslateY = currentSheetY - BOTTOM_SHEET_START_Y;
+        const currentTranslateY = currentSheetY - optionsRef.current.BOTTOM_SHEET_START_Y;
 
         // 중간점을 기준으로 스냅
-        const midPoint = (MIN_TRANSLATE + MAX_TRANSLATE) / 2;
+        const midPoint = (optionsRef.current.MIN_TRANSLATE + optionsRef.current.MAX_TRANSLATE) / 2;
 
         if (currentTranslateY < midPoint) {
           // 위쪽에 더 가까우면 완전히 올림
-          sheetRef.current.style.setProperty("transform", `translateY(${MIN_TRANSLATE}px)`);
+          sheetRef.current.style.setProperty(
+            "transform",
+            `translateY(${optionsRef.current.MIN_TRANSLATE}px)`,
+          );
         } else {
           // 아래쪽에 더 가까우면 완전히 내림
-          sheetRef.current.style.setProperty("transform", `translateY(${MAX_TRANSLATE}px)`);
+          sheetRef.current.style.setProperty(
+            "transform",
+            `translateY(${optionsRef.current.MAX_TRANSLATE}px)`,
+          );
         }
       }
 
@@ -233,7 +240,7 @@ const useBottomSheetDrag = ({
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [MAX_TRANSLATE, BOTTOM_SHEET_START_Y]);
+  }, []);
 
   // content 영역에서 스크롤 처리 (모바일 터치 + 데스크톱 휠)
   useEffect(() => {

@@ -61,6 +61,19 @@ const useBottomSheetDrag = ({
     let isDragging = false;
     let hasMoved = false;
 
+    /**
+     * 현재 translateY 위치를 기반으로 스냅할 위치를 계산합니다.
+     * 현재는 2단 스냅(완전히 올림 / 완전히 내림)을 지원하며,
+     * 향후 3단 이상의 스냅 포인트 추가가 가능하도록 함수로 분리했습니다.
+     */
+    const getSnapPoint = (currentTranslateY: number): number => {
+      const { MIN_TRANSLATE, MAX_TRANSLATE } = optionsRef.current;
+      const midPoint = (MIN_TRANSLATE + MAX_TRANSLATE) / 2;
+
+      // 중간점을 기준으로 위쪽이면 올림, 아래쪽이면 내림
+      return currentTranslateY < midPoint ? MIN_TRANSLATE : MAX_TRANSLATE;
+    };
+
     const startDrag = (startY: number) => {
       if (!sheetRef.current) {
         return;
@@ -137,22 +150,9 @@ const useBottomSheetDrag = ({
         const currentSheetY = sheetRef.current.getBoundingClientRect().y;
         const currentTranslateY = currentSheetY - optionsRef.current.BOTTOM_SHEET_START_Y;
 
-        // 중간점을 기준으로 스냅
-        const midPoint = (optionsRef.current.MIN_TRANSLATE + optionsRef.current.MAX_TRANSLATE) / 2;
-
-        if (currentTranslateY < midPoint) {
-          // 위쪽에 더 가까우면 완전히 올림
-          sheetRef.current.style.setProperty(
-            "transform",
-            `translateY(${optionsRef.current.MIN_TRANSLATE}px)`,
-          );
-        } else {
-          // 아래쪽에 더 가까우면 완전히 내림
-          sheetRef.current.style.setProperty(
-            "transform",
-            `translateY(${optionsRef.current.MAX_TRANSLATE}px)`,
-          );
-        }
+        // 스냅 포인트 계산 및 적용
+        const snapPoint = getSnapPoint(currentTranslateY);
+        sheetRef.current.style.setProperty("transform", `translateY(${snapPoint}px)`);
       }
 
       metrics.current = {

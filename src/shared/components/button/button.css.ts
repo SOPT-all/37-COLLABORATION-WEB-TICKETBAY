@@ -55,7 +55,6 @@ export const sizeStyles = styleVariants({
       minHeight: "3.2rem",
       padding: "0.6rem 8.3rem",
       borderRadius: "6px",
-      width: "34.6rem",
     },
   ],
 });

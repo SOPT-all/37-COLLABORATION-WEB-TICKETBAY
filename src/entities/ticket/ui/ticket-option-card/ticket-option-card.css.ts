@@ -9,7 +9,7 @@ export const container = style({
   gap: "0.4rem",
   height: "13.9rem",
 
-  border: `1px solid ${themeVars.color.grayscale4}`,
+  border: `1px solid ${themeVars.color.grayscale6}`,
   borderRadius: "12px",
   backgroundColor: themeVars.color.grayscale9,
 

@@ -1,14 +1,20 @@
+import { useRef } from "react";
+
 import { OptionIcon } from "@assets/icons";
 
 import Dropdown from "@widgets/select-ticket/components/dropdown/dropdown";
 import { DROPDOWN_CONFIGS } from "@widgets/select-ticket/constants/dropdown-mock-data";
+import { useHorizontalScroll } from "@widgets/select-ticket/hooks/use-horizontal-scroll";
 
 import * as styles from "./dropdown-list.css";
 
 const DropDownList = () => {
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  useHorizontalScroll(scrollAreaRef);
+
   return (
     <div className={styles.container}>
-      <div className={styles.scrollArea}>
+      <div ref={scrollAreaRef} className={styles.scrollArea}>
         <div className={styles.dropdownList}>
           {DROPDOWN_CONFIGS.map(({ id, label, options }) => (
             <Dropdown key={id} label={label} options={options} />

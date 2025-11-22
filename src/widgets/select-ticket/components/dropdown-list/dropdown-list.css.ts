@@ -12,12 +12,11 @@ export const container = style({
 
 // 드롭다운들만 스크롤되는 영역
 export const scrollArea = style({
-  display: "flex",
-  alignItems: "center",
-  width: "100%",
+  flex: 1,
   height: "100%",
   overflowX: "auto",
   overflowY: "visible",
+  minWidth: 0,
 });
 
 export const dropdownList = style({
@@ -25,7 +24,9 @@ export const dropdownList = style({
   flexWrap: "nowrap",
   gap: "1rem",
   width: "max-content",
-  paddingRight: "4.4rem", // 오른쪽 아이콘 영역만큼 여백
+  paddingRight: "4.4rem",
+  alignItems: "center",
+  height: "100%",
 });
 
 export const dropdownListIcon = style({

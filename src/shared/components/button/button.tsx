@@ -21,10 +21,12 @@ export const Button = ({
   className,
   ...rest
 }: ButtonProps) => {
-  const composedClassName = [styles.button({ color, size }), className].filter(Boolean).join(" ");
-
   return (
-    <button type="button" className={composedClassName} {...rest}>
+    <button
+      type="button"
+      className={[styles.button({ color, size }), className].filter(Boolean).join(" ")}
+      {...rest}
+    >
       <span>{children}</span>
       {rightIcon && <span>{rightIcon}</span>}
     </button>

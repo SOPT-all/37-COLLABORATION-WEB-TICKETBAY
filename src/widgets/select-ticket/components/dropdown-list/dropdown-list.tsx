@@ -15,9 +15,9 @@ const DropDownList = () => {
           ))}
         </div>
       </div>
-      <div className={styles.dropdownListIcon}>
+      <button type="button" className={styles.dropdownListIcon}>
         <OptionIcon width={24} height={24} />
-      </div>
+      </button>
     </div>
   );
 };

@@ -68,19 +68,24 @@ const Dropdown = ({ label, options }: Props) => {
 
       {currentIsOpen && dropdownPosition && (
         <div ref={dropdownListRef} className={styles.dropdownList}>
-          <div className={styles.dropdownFirstItem} onClick={() => selectOption(label, null)}>
+          <button
+            type="button"
+            className={styles.dropdownFirstItem}
+            onClick={() => selectOption(label, null)}
+          >
             <CheckSmallIcon width={24} height={24} className={styles.dropdownItemIcon} />
             <span className={styles.dropdownItemLabel}>전체</span>
-          </div>
+          </button>
 
           {options.map((option) => (
-            <div
+            <button
+              type="button"
               key={option.id}
               className={styles.dropdownItem}
               onClick={() => selectOption(label, option.id)}
             >
               <span className={styles.dropdownItemLabel}>{option.label}</span>
-            </div>
+            </button>
           ))}
         </div>
       )}

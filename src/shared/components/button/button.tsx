@@ -1,10 +1,10 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-import { fullWidthStyle, root, sizeStyles, variantStyles } from "./button.css";
+import * as styles from "./button.css";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: keyof typeof variantStyles;
-  size?: keyof typeof sizeStyles;
+  variant?: keyof typeof styles.variantStyles;
+  size?: keyof typeof styles.sizeStyles;
   fullWidth?: boolean;
   children: ReactNode;
   className?: string;
@@ -19,10 +19,10 @@ export const Button = ({
   ...rest
 }: ButtonProps) => {
   const classNames = [
-    root,
-    variantStyles[variant],
-    sizeStyles[size],
-    fullWidth && fullWidthStyle,
+    styles.root,
+    styles.variantStyles[variant],
+    styles.sizeStyles[size],
+    fullWidth && styles.fullWidthStyle,
     className,
   ]
     .filter(Boolean)

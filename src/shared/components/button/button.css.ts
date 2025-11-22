@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
 
-import { sprinkles, themeVars } from "@shared/styles/theme.css";
+import { themeVars } from "@shared/styles/theme.css";
 
 // 버튼 스타일 통합
 export const button = recipe({
@@ -33,7 +33,7 @@ export const button = recipe({
     },
     size: {
       buy: [
-        sprinkles({ fontStyles: "body2_medium" }),
+        themeVars.fontStyles.body2_medium,
         {
           minHeight: "4.4rem",
           padding: "1.2rem 8.3rem",
@@ -41,7 +41,7 @@ export const button = recipe({
         },
       ],
       ticketbayGlobal: [
-        sprinkles({ fontStyles: "body3_medium" }),
+        themeVars.fontStyles.body3_medium,
         {
           minHeight: "3.2rem",
           padding: "0.6rem 8.3rem",

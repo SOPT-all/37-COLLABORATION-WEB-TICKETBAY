@@ -6,7 +6,7 @@ type ButtonColor = "primary" | "secondary";
 type ButtonSize = "buy" | "ticketbayGlobal";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  buttonColor?: ButtonColor;
+  color?: ButtonColor;
   size?: ButtonSize;
   fullWidth?: boolean;
   children: ReactNode;
@@ -14,25 +14,19 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = ({
-  buttonColor = "primary",
+  color = "primary",
   size = "buy",
   fullWidth = false,
   children,
   className,
   ...rest
 }: ButtonProps) => {
-  const classNames = [
-    styles.root,
-    styles.variantStyles[buttonColor],
-    styles.sizeStyles[size],
-    fullWidth && styles.fullWidthStyle,
-    className,
-  ]
+  const composedClassName = [styles.button({ color, size, fullWidth }), className]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <button className={classNames} type="button" {...rest}>
+    <button type="button" className={composedClassName} {...rest}>
       {children}
     </button>
   );

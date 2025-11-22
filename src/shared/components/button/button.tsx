@@ -9,6 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: ButtonColor;
   size?: ButtonSize;
   fullWidth?: boolean;
+  rightIcon?: ReactNode;
   children: ReactNode;
   className?: string;
 }
@@ -17,6 +18,7 @@ export const Button = ({
   color = "primary",
   size = "buy",
   fullWidth = false,
+  rightIcon,
   children,
   className,
   ...rest
@@ -27,7 +29,8 @@ export const Button = ({
 
   return (
     <button type="button" className={composedClassName} {...rest}>
-      {children}
+      <span>{children}</span>
+      {rightIcon && <span>{rightIcon}</span>}
     </button>
   );
 };

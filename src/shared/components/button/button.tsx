@@ -2,16 +2,19 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 import * as styles from "./button.css";
 
+type ButtonColor = "primary" | "secondary";
+type ButtonSize = "buy" | "ticketbayGlobal";
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: keyof typeof styles.variantStyles;
-  size?: keyof typeof styles.sizeStyles;
+  buttonColor?: ButtonColor;
+  size?: ButtonSize;
   fullWidth?: boolean;
   children: ReactNode;
   className?: string;
 }
 
 export const Button = ({
-  variant = "primary",
+  buttonColor = "primary",
   size = "buy",
   fullWidth = false,
   children,
@@ -20,7 +23,7 @@ export const Button = ({
 }: ButtonProps) => {
   const classNames = [
     styles.root,
-    styles.variantStyles[variant],
+    styles.variantStyles[buttonColor],
     styles.sizeStyles[size],
     fullWidth && styles.fullWidthStyle,
     className,
@@ -29,7 +32,7 @@ export const Button = ({
     .join(" ");
 
   return (
-    <button className={classNames} {...rest} type="button">
+    <button className={classNames} type="button" {...rest}>
       {children}
     </button>
   );

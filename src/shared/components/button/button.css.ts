@@ -37,8 +37,8 @@ export const variantStyles = styleVariants({
   },
 });
 
+// 사이즈 스타일
 export const sizeStyles = styleVariants({
-  // 구매하기 버튼
   buy: [
     sprinkles({ fontStyles: "body2_medium" }),
     {
@@ -47,8 +47,6 @@ export const sizeStyles = styleVariants({
       borderRadius: "0.8rem",
     },
   ],
-
-  // TICKETBAY GLOBAL 버튼
   ticketbayGlobal: [
     sprinkles({ fontStyles: "body3_medium" }),
     {
@@ -58,6 +56,3 @@ export const sizeStyles = styleVariants({
     },
   ],
 });
-
-export type ButtonVariant = keyof typeof variantStyles;
-export type ButtonSize = keyof typeof sizeStyles;

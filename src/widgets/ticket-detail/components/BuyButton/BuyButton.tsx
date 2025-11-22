@@ -6,7 +6,7 @@ export interface BuyButtonProps {
 }
 
 export const BuyButton = () => (
-  <Button variant="primary" size="buy" fullWidth>
+  <Button buttonColor="primary" size="buy">
     구매하기
   </Button>
 );

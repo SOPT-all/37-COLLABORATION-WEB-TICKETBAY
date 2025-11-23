@@ -14,18 +14,15 @@ const CheckBox = ({ label }: Props) => {
     setIsChecked((prev) => !prev);
   };
 
+  const Icon = isChecked ? CheckedBoxIcon : CheckBoxIcon;
+
   return (
-    <label className={styles.container}>
+    <div className={styles.container}>
       <button type="button" onClick={handleCheckBoxClick}>
-        {isChecked && (
-          <CheckedBoxIcon width={14} height={14} className={styles.icon({ isChecked })} />
-        )}
-        {!isChecked && (
-          <CheckBoxIcon width={14} height={14} className={styles.icon({ isChecked })} />
-        )}
+        <Icon width={14} height={14} className={styles.icon({ isChecked })} />
       </button>
       {label && <span className={styles.label}>{label}</span>}
-    </label>
+    </div>
   );
 };
 

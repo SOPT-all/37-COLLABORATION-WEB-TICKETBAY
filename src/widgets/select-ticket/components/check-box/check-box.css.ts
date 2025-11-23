@@ -13,6 +13,7 @@ export const container = style({
 export const label = style({
   ...themeVars.fontStyles.caption1_medium,
   color: themeVars.color.grayscale1,
+  cursor: "pointer",
 });
 
 export const icon = recipe({

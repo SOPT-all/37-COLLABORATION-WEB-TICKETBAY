@@ -15,7 +15,7 @@ const CheckBox = ({ label }: Props) => {
   };
 
   return (
-    <div className={styles.container}>
+    <label className={styles.container}>
       <button type="button" onClick={handleCheckBoxClick}>
         {isChecked && (
           <CheckedBoxIcon width={14} height={14} className={styles.icon({ isChecked })} />
@@ -25,7 +25,7 @@ const CheckBox = ({ label }: Props) => {
         )}
       </button>
       {label && <span className={styles.label}>{label}</span>}
-    </div>
+    </label>
   );
 };
 

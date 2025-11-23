@@ -39,7 +39,7 @@ export const button = recipe({
         {
           minHeight: "4.4rem",
           padding: "1.2rem 8.3rem",
-          borderRadius: "0.8rem",
+          borderRadius: "8px",
         },
       ],
       ticketbayGlobal: [

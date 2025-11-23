@@ -64,11 +64,11 @@ export const dragHandle = style({
 export const content = style({
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
   flex: 1,
   minHeight: 0,
   overflowY: "auto",
   overflowX: "hidden",
   maxHeight: "100%",
   WebkitOverflowScrolling: "touch",
+  gap: "1.2rem",
 });

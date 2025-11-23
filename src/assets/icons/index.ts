@@ -7,7 +7,9 @@ export { default as CartSelectedIcon } from "@assets/svg/icon_cart_selected.svg?
 export { default as CategoryIcon } from "@assets/svg/icon_category.svg?react";
 export { default as CategorySelectedIcon } from "@assets/svg/icon_category_selected.svg?react";
 export { default as CheckIcon } from "@assets/svg/icon_check.svg?react";
+export { default as CheckBoxIcon } from "@assets/svg/icon_check_box.svg?react";
 export { default as CheckSmallIcon } from "@assets/svg/icon_check_small.svg?react";
+export { default as CheckedBoxIcon } from "@assets/svg/icon_checked_box.svg?react";
 export { default as ChevronBigLeftIcon } from "@assets/svg/icon_chevron_big_left.svg?react";
 export { default as ChevronBigRightIcon } from "@assets/svg/icon_chevron_big_right.svg?react";
 export { default as ChevronBigTopIcon } from "@assets/svg/icon_chevron_big_top.svg?react";

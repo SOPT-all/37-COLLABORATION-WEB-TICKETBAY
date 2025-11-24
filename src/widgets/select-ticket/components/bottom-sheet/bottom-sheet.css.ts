@@ -2,6 +2,10 @@ import { style } from "@vanilla-extract/css";
 
 import { themeVars } from "@shared/styles/theme.css";
 
+const HEADER_CONTENT_HEIGHT = "2.2rem";
+const BOTTOM_SHEET_TRANSLATE_CSS_VAR = "--bottom-sheet-translate";
+const IMAGE_HEIGHT_REM = "27.1rem";
+
 export const base = style({
   display: "flex",
   justifyContent: "center",
@@ -32,14 +36,14 @@ export const bottomSheet = style({
   width: "100%",
   maxWidth: "var(--max-width)",
   minWidth: "var(--min-width)",
-  transform: "translateY(27.1rem)", // IMAGE_HEIGHT
+  transform: `translateY(var(${BOTTOM_SHEET_TRANSLATE_CSS_VAR}, ${IMAGE_HEIGHT_REM}))`,
   transition: "transform 0.1s ease-out",
   pointerEvents: "auto",
   overflow: "hidden",
 });
 
 export const header = style({
-  height: "2.2rem",
+  height: HEADER_CONTENT_HEIGHT,
   padding: "1rem 0 0.8rem",
   display: "flex",
   justifyContent: "center",
@@ -68,7 +72,8 @@ export const content = style({
   minHeight: 0,
   overflowY: "auto",
   overflowX: "hidden",
-  maxHeight: "100%",
+  height: `calc(100vh - 10.9rem - ${HEADER_CONTENT_HEIGHT} - var(${BOTTOM_SHEET_TRANSLATE_CSS_VAR}, 0px))`,
+  maxHeight: `calc(100vh - 10.9rem - ${HEADER_CONTENT_HEIGHT} - var(${BOTTOM_SHEET_TRANSLATE_CSS_VAR}, 0px))`,
   WebkitOverflowScrolling: "touch",
   gap: "1.2rem",
 });

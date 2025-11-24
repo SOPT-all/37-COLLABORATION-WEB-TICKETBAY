@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 
+const BOTTOM_SHEET_TRANSLATE_CSS_VAR = "--bottom-sheet-translate";
+
 /**
  * 바텀시트 드래그 훅에 전달되는 레이아웃 정보입니다.
  *
@@ -42,19 +44,23 @@ const useBottomSheetDrag = ({
   const headerRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
-  // 바텀시트가 차지하는 영역의 시작 지점 (Navigation + Header 높이)
-  // 옵션 값이 변경될 일이 거의 없으므로 useRef에 저장하여 마운트 시 한 번만 등록
   const optionsRef = useRef({
     BOTTOM_SHEET_START_Y: navigationHeight + headerHeight,
-    MIN_TRANSLATE: 0, // 완전히 올라온 상태
-    MAX_TRANSLATE: maxTranslate, // 최대 내려간 상태
+    MIN_TRANSLATE: 0,
+    MAX_TRANSLATE: maxTranslate,
   });
 
-  // 드래그 시작 시점의 바텀시트/포인터 위치 스냅샷
   const metrics = useRef<DragMetrics>({
     sheetY: 0,
     touchY: 0,
   });
+
+  // 초기 마운트 시 CSS 변수 설정 (content 높이 계산을 위해)
+  useEffect(() => {
+    if (sheetRef.current) {
+      sheetRef.current.style.setProperty(BOTTOM_SHEET_TRANSLATE_CSS_VAR, `${maxTranslate}px`);
+    }
+  }, [maxTranslate]);
 
   // 드래그(터치 + 마우스) 처리
   useEffect(() => {
@@ -63,17 +69,37 @@ const useBottomSheetDrag = ({
 
     /**
      * 현재 translateY 위치를 기반으로 스냅할 위치를 계산합니다.
-     * 현재는 2단 스냅(완전히 올림 / 완전히 내림)을 지원하며,
-     * 향후 3단 이상의 스냅 포인트 추가가 가능하도록 함수로 분리했습니다.
+     * 중간점을 기준으로 위쪽이면 완전히 올림(MIN_TRANSLATE), 아래쪽이면 완전히 내림(MAX_TRANSLATE).
      */
     const getSnapPoint = (currentTranslateY: number): number => {
       const { MIN_TRANSLATE, MAX_TRANSLATE } = optionsRef.current;
       const midPoint = (MIN_TRANSLATE + MAX_TRANSLATE) / 2;
-
-      // 중간점을 기준으로 위쪽이면 올림, 아래쪽이면 내림
       return currentTranslateY < midPoint ? MIN_TRANSLATE : MAX_TRANSLATE;
     };
 
+    /**
+     * 바텀시트의 translateY 값을 업데이트합니다.
+     * transform과 CSS 변수를 동시에 업데이트하여 content 높이 계산이 자동으로 반영되도록 합니다.
+     * @param value - translateY 값 (px)
+     * @param options - transition 옵션 (드래그 중에는 "none", 스냅 시에는 애니메이션 적용)
+     */
+    const setSheetTranslate = (value: number, options?: { transition?: string }) => {
+      if (!sheetRef.current) {
+        return;
+      }
+      // transform 업데이트: 바텀시트 위치 변경
+      sheetRef.current.style.setProperty("transform", `translateY(${value}px)`);
+      // CSS 변수 업데이트: content 높이 계산에 사용 (calc에서 var(--bottom-sheet-translate) 참조)
+      sheetRef.current.style.setProperty(BOTTOM_SHEET_TRANSLATE_CSS_VAR, `${value}px`);
+      if (options?.transition !== undefined) {
+        sheetRef.current.style.setProperty("transition", options.transition);
+      }
+    };
+
+    /**
+     * 드래그를 시작합니다.
+     * 현재 바텀시트 위치와 포인터 위치를 스냅샷으로 저장하고, body 스크롤을 잠급니다.
+     */
     const startDrag = (startY: number) => {
       if (!sheetRef.current) {
         return;
@@ -82,45 +108,48 @@ const useBottomSheetDrag = ({
       isDragging = true;
       hasMoved = false;
 
-      const metric = metrics.current;
+      // 현재 바텀시트의 실제 Y 좌표에서 시작 지점을 빼서 translateY 값 계산
       const rectY = sheetRef.current.getBoundingClientRect().y;
-      // 현재 translateY = 실제 Y좌표 - BOTTOM_SHEET_START_Y
-      metric.sheetY = rectY - optionsRef.current.BOTTOM_SHEET_START_Y;
-      metric.touchY = startY;
+      metrics.current.sheetY = rectY - optionsRef.current.BOTTOM_SHEET_START_Y;
+      metrics.current.touchY = startY;
 
-      // body 스크롤 방지
+      // 드래그 중 body 스크롤 방지
       document.body.style.overflow = "hidden";
       document.body.style.touchAction = "none";
     };
 
+    /**
+     * 드래그 중 바텀시트 위치를 업데이트합니다.
+     * 최소/최대 범위를 제한하고, transition을 "none"으로 설정하여 즉시 반영합니다.
+     */
     const moveDrag = (currentY: number) => {
       if (!isDragging || !sheetRef.current) {
         return;
       }
 
       const { sheetY, touchY } = metrics.current;
-
-      // 최소 드래그 거리 체크
       const dragDistance = Math.abs(currentY - touchY);
+
+      // 최소 드래그 거리를 넘어야 실제 드래그로 인식 (클릭과 구분)
       if (dragDistance > MIN_DRAG_DISTANCE) {
         hasMoved = true;
       }
 
+      // 시작 위치에서의 이동 거리를 계산하여 새로운 translateY 값 계산
       const offset = currentY - touchY;
-      let nextTranslateY = sheetY + offset;
+      const nextTranslateY = Math.max(
+        optionsRef.current.MIN_TRANSLATE,
+        Math.min(optionsRef.current.MAX_TRANSLATE, sheetY + offset),
+      );
 
-      // 범위 제한
-      if (nextTranslateY < optionsRef.current.MIN_TRANSLATE) {
-        nextTranslateY = optionsRef.current.MIN_TRANSLATE;
-      }
-      if (nextTranslateY > optionsRef.current.MAX_TRANSLATE) {
-        nextTranslateY = optionsRef.current.MAX_TRANSLATE;
-      }
-
-      sheetRef.current.style.setProperty("transform", `translateY(${nextTranslateY}px)`);
-      sheetRef.current.style.setProperty("transition", "none");
+      // transition을 "none"으로 설정하여 드래그 중 부드러운 이동
+      setSheetTranslate(nextTranslateY, { transition: "none" });
     };
 
+    /**
+     * 드래그를 종료하고 스냅 포인트로 이동합니다.
+     * 실제로 드래그하지 않았으면(클릭) 아무 동작도 하지 않습니다.
+     */
     const endDrag = () => {
       if (!isDragging) {
         return;
@@ -132,38 +161,31 @@ const useBottomSheetDrag = ({
       document.body.style.overflow = "";
       document.body.style.touchAction = "";
 
-      // 실제로 드래그하지 않았으면 아무것도 하지 않음 (토글하지 않음)
+      // 클릭(드래그 없음)인 경우: 현재 위치 유지
       if (!didMove) {
         if (sheetRef.current) {
-          sheetRef.current.style.setProperty("transition", "transform 0.3s ease-out");
+          setSheetTranslate(metrics.current.sheetY, { transition: "transform 0.3s ease-out" });
         }
-        metrics.current = {
-          sheetY: 0,
-          touchY: 0,
-        };
+        metrics.current = { sheetY: 0, touchY: 0 };
         return;
       }
 
+      // 드래그한 경우: 현재 위치를 기반으로 스냅 포인트 계산 후 이동
       if (sheetRef.current) {
-        sheetRef.current.style.setProperty("transition", "transform 0.3s ease-out");
-
         const currentSheetY = sheetRef.current.getBoundingClientRect().y;
         const currentTranslateY = currentSheetY - optionsRef.current.BOTTOM_SHEET_START_Y;
-
-        // 스냅 포인트 계산 및 적용
         const snapPoint = getSnapPoint(currentTranslateY);
-        sheetRef.current.style.setProperty("transform", `translateY(${snapPoint}px)`);
+        // 애니메이션과 함께 스냅 포인트로 이동
+        setSheetTranslate(snapPoint, { transition: "transform 0.3s ease-out" });
       }
 
-      metrics.current = {
-        sheetY: 0,
-        touchY: 0,
-      };
+      metrics.current = { sheetY: 0, touchY: 0 };
     };
 
-    // 터치 이벤트 핸들러 (헤더에서만 드래그 시작)
+    // 터치 이벤트: 헤더 영역에서만 드래그 시작
     const handleTouchStart = (e: TouchEvent) => {
       const target = e.target as HTMLElement;
+      // 헤더 영역이 아니면 드래그 시작하지 않음 (content 영역은 스크롤)
       if (!headerRef.current || !headerRef.current.contains(target)) {
         return;
       }
@@ -187,7 +209,7 @@ const useBottomSheetDrag = ({
       }
     };
 
-    // 마우스 이벤트 핸들러 (헤더에서만 드래그 시작)
+    // 마우스 이벤트: 헤더 영역에서만 드래그 시작
     const handleMouseDown = (e: MouseEvent) => {
       // 왼쪽 버튼만 처리
       if (e.button !== 0) {
@@ -195,6 +217,7 @@ const useBottomSheetDrag = ({
       }
 
       const target = e.target as HTMLElement;
+      // 헤더 영역이 아니면 드래그 시작하지 않음
       if (!headerRef.current || !headerRef.current.contains(target)) {
         return;
       }
@@ -203,7 +226,7 @@ const useBottomSheetDrag = ({
       e.preventDefault();
       e.stopPropagation();
 
-      // 마우스가 헤더를 벗어나도 계속 추적하기 위해 전역 리스너 활성화
+      // 마우스가 헤더를 벗어나도 계속 추적하기 위해 전역 리스너 등록
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
     };
@@ -220,12 +243,10 @@ const useBottomSheetDrag = ({
       if (isDragging) {
         endDrag();
       }
-      // 전역 리스너 제거
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
 
-    // 이벤트 리스너 등록
     const sheetElement = sheetRef.current;
     sheetElement?.addEventListener("touchstart", handleTouchStart, { passive: false });
     sheetElement?.addEventListener("touchmove", handleTouchMove, { passive: false });
@@ -242,7 +263,10 @@ const useBottomSheetDrag = ({
     };
   }, []);
 
-  // content 영역에서 스크롤 처리 (모바일 터치 + 데스크톱 휠)
+  /**
+   * content 영역에서 스크롤 처리 (모바일 터치 + 데스크톱 휠)
+   * 바텀시트 내부 content 영역의 스크롤이 body 스크롤로 전파되지 않도록 처리합니다.
+   */
   useEffect(() => {
     // 터치 이벤트: content 영역에서 body 스크롤 방지
     const handleContentTouchMove = (e: TouchEvent) => {
@@ -253,25 +277,31 @@ const useBottomSheetDrag = ({
 
     document.addEventListener("touchmove", handleContentTouchMove, { passive: false });
 
-    // 데스크톱 휠 스크롤을 bottomSheet 전체에서 받아서 content로 전달
+    // 데스크톱 휠 스크롤: 바텀시트 또는 content 영역에서 휠 이벤트를 받아서 content로 전달
     const sheetElement = sheetRef.current;
+    const contentElement = contentRef.current;
 
     const handleWheel = (e: WheelEvent) => {
-      const contentElement = contentRef.current;
       if (!contentElement) {
         return;
       }
 
-      // 기본 스크롤(바디 스크롤) 막고 content에만 스크롤 적용
-      e.preventDefault();
-      contentElement.scrollTop += e.deltaY;
+      // 바텀시트 영역 내에서만 처리
+      const target = e.target as Node;
+      if (sheetElement && (sheetElement.contains(target) || contentElement.contains(target))) {
+        // body 스크롤 방지하고 content에만 스크롤 적용
+        e.preventDefault();
+        e.stopPropagation();
+        contentElement.scrollTop += e.deltaY;
+      }
     };
 
-    sheetElement?.addEventListener("wheel", handleWheel, { passive: false });
+    // document에 등록하여 바텀시트 영역 어디서든 휠 이벤트 감지
+    document.addEventListener("wheel", handleWheel, { passive: false });
 
     return () => {
       document.removeEventListener("touchmove", handleContentTouchMove);
-      sheetElement?.removeEventListener("wheel", handleWheel);
+      document.removeEventListener("wheel", handleWheel);
     };
   }, []);
 

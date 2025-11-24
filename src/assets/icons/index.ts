@@ -41,6 +41,7 @@ export { default as ResetIcon } from "@assets/svg/icon_reset.svg?react";
 export { default as SearchIcon } from "@assets/svg/icon_search.svg?react";
 export { default as SoundIcon } from "@assets/svg/icon_sound.svg?react";
 export { default as SportsIcon } from "@assets/svg/icon_sports.svg?react";
+export { default as StarFiveIcon } from "@assets/svg/icon_star_five.svg?react";
 export { default as TicketinSulationIcon } from "@assets/svg/icon_ticketin_sulation.svg?react";
 export { default as TicketregisterIcon } from "@assets/svg/icon_ticketregister.svg?react";
 export { default as TicketregisterSelectedIcon } from "@assets/svg/icon_ticketregister_selected.svg?react";

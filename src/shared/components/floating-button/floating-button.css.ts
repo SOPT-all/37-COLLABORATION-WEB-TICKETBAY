@@ -8,10 +8,8 @@ const baseButton = style({
   display: "flex",
   width: "4.2rem",
   height: "4.2rem",
-  padding: "1.2rem",
   alignItems: "center",
   justifyContent: "center",
-  gap: "1.2rem",
   borderRadius: "20.5px",
   aspectRatio: "1/1",
   cursor: "pointer",
@@ -28,18 +26,20 @@ const baseButton = style({
 export const floatingButtonTop = style([
   baseButton,
   {
-    bottom: "15.2rem",
+    bottom: "12.2rem",
     background: themeVars.color.grayscale9,
     color: themeVars.color.grayscale1,
+    pointerEvents: "auto",
   },
 ]);
 
 export const floatingButtonHelp = style([
   baseButton,
   {
-    bottom: "9.2rem",
+    bottom: "6.2rem",
     background: themeVars.color.grayscale1,
     color: themeVars.color.grayscale9,
+    pointerEvents: "auto",
   },
 ]);
 
@@ -53,19 +53,7 @@ export const floatingButtonContainer = style({
   maxWidth: "var(--max-width)",
   minWidth: "var(--min-width)",
   height: "100dvh",
-  pointerEvents: "none",
-  zIndex: 50,
+  zIndex: themeVars.zIndex.flotingbtn,
 });
 
-export const iconTop = style({
-  width: "24px",
-  height: "24px",
-  flexShrink: 0,
-});
-
-export const iconHelp = style({
-  width: "17px",
-  height: "17px",
-  flexShrink: 0,
-});
 

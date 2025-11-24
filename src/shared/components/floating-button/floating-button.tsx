@@ -9,25 +9,23 @@ const FloatingButton = () => {
 
   return (
     <div className={styles.floatingButtonContainer}>
-      {/* 위 버튼: 최상단 이동 */}
+    
       <button
         type="button"
         className={styles.floatingButtonTop}
         onClick={handleScrollToTop}
         aria-label="최상단으로 이동"
-        style={{ pointerEvents: "auto" }}
       >
-        <ChevronBigTopIcon className={styles.iconTop} />
+        <ChevronBigTopIcon width={24} height={24} />
       </button>
 
-      {/* 아래 버튼: 고객센터 문의 */}
+    
       <button
         type="button"
         className={styles.floatingButtonHelp}
         aria-label="1:1 문의하기"
-        style={{ pointerEvents: "auto" }}
       >
-        <FabIcon className={styles.iconHelp} />
+        <FabIcon width={17} height={17} />
       </button>
     </div>
   );

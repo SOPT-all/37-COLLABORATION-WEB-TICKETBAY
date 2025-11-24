@@ -32,6 +32,7 @@ export const productTitle = style({
 export const originalPrice = style({
   ...themeVars.fontStyles.caption2_regular,
   color: themeVars.color.grayscale3,
+  textDecoration: "line-through",
 });
 
 export const priceContainer = style({

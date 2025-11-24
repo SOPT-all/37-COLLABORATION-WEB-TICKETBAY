@@ -29,12 +29,7 @@ const TicketList = () => {
   return (
     <div className={styles.container}>
       {filteredTickets.map((match) => (
-        <TicketOptionCard
-          key={match.id}
-          isCompareButtonActive={false}
-          onClickCard={() => handleCardClick(match.id)}
-          {...match}
-        />
+        <TicketOptionCard key={match.id} onClickCard={() => handleCardClick(match.id)} {...match} />
       ))}
     </div>
   );

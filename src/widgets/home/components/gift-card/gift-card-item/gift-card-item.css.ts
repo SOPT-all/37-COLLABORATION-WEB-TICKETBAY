@@ -17,6 +17,7 @@ export const textContainer = style({
   display: "flex",
   flexDirection: "column",
   gap: "0.8rem",
+  justifyContent: "center",
 });
 
 export const brandName = style({

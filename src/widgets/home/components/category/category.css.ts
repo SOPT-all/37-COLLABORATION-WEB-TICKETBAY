@@ -4,7 +4,6 @@ import { themeVars } from "@shared/styles/theme.css";
 export const container = style({
   display: "flex",
   flexDirection: "column",
-  gap: "0.8rem",
   padding: "1.2rem 1rem",
   justifyContent: "center",
   alignItems: "center",

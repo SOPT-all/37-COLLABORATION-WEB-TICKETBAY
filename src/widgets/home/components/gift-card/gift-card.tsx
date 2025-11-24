@@ -24,8 +24,8 @@ const GiftCard = () => {
               </Tab.Item>
             ))}
           </Tab.List>
-          <Tab.Panel value="0">
-            <div className={styles.list}>
+          <div className={styles.list}>
+            <Tab.Panel value="0">
               {GIFT_CARD_LIST.map((item) => (
                 <GiftCardItem
                   imageUrl={item.imageUrl}
@@ -36,8 +36,8 @@ const GiftCard = () => {
                   salePrice={item.salePrice}
                 />
               ))}
-            </div>
-          </Tab.Panel>
+            </Tab.Panel>
+          </div>
         </Tab.Container>
       </div>
     </Section>

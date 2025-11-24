@@ -10,20 +10,19 @@ export const container = style({
   minWidth: "var(--min-width)",
   maxWidth: "var(--max-width)",
   minHeight: "24.9rem", 
-  overflow: "hidden",
 });
 
 export const backgroundImage = style({
   position: "absolute",
   top: 0,
-  left: "-5.9rem",
+  left: "50%",
+  transform: "translateX(-50%)",
   width: "49.3rem",
   height: "17.9rem",
   zIndex: themeVars.zIndex.background,
   backgroundImage: `url(${TOP_BACKGROUND_IMAGE_URL})`,
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
-
 });
 
 export const gradient = style({

@@ -34,7 +34,6 @@ export const iconButton = style({
   justifyContent: "center",
   width: "4.8rem",
   height: "4.8rem",
-  border: "none",
   backgroundColor: "transparent",
   color: themeVars.color.grayscale9,
   cursor: "pointer",

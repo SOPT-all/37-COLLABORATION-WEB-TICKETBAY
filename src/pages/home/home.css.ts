@@ -1,5 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
+import { themeVars } from "@shared/styles/theme.css";
+
 const TOP_BACKGROUND_IMAGE_URL = "/top_background.webp";
 
 export const container = style({
@@ -7,7 +9,7 @@ export const container = style({
   width: "100%",
   minWidth: "var(--min-width)",
   maxWidth: "var(--max-width)",
-  minHeight: "24.9rem",
+  minHeight: "24.9rem", 
   overflow: "hidden",
 });
 
@@ -17,10 +19,11 @@ export const backgroundImage = style({
   left: "-5.9rem",
   width: "49.3rem",
   height: "17.9rem",
+  zIndex: themeVars.zIndex.background,
   backgroundImage: `url(${TOP_BACKGROUND_IMAGE_URL})`,
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
-  pointerEvents: "none",
+
 });
 
 export const gradient = style({
@@ -28,7 +31,7 @@ export const gradient = style({
   top: "17.9rem",
   width: "100%",
   height: "7rem",
+  zIndex: themeVars.zIndex.background,
   background: "var(--color_black_gradient, linear-gradient(0deg, #F8F9FA 0%, #000 100%))",
-  pointerEvents: "none",
 });
 

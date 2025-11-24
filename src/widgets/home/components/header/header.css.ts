@@ -4,12 +4,11 @@ import { themeVars } from "@shared/styles/theme.css";
 
 export const container = style({
   display: "flex",
-  position: "fixed",
-  top: "0.7rem",
+  position: "relative",
+  marginTop: "0.7rem",
   zIndex: themeVars.zIndex.header,
   alignItems: "center",
   justifyContent: "space-between",
-  flexShrink: 0,
   width: "100%",
   minWidth: "var(--min-width)",
   maxWidth: "var(--max-width)",

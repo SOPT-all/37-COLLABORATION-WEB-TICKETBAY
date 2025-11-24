@@ -1,4 +1,4 @@
-import { formatCurrency } from "@widgets/home/utils/format-currency";
+import { formatPriceToKorean } from "@shared/utils/format-price-to-korean";
 
 import * as styles from "./gift-card-item.css";
 
@@ -26,10 +26,10 @@ const GiftCardItem = ({
         <p className={styles.brandName}>{brandName}</p>
         <p className={styles.productTitle}>{productTitle}</p>
         <div className={styles.priceContainer}>
-          <p className={styles.originalPrice}>{formatCurrency(originalPrice)}원</p>
+          <p className={styles.originalPrice}>{formatPriceToKorean(originalPrice)}원</p>
           <p className={styles.discountPrice}>
             <span className={styles.discountRate}>{discountRate}%</span>
-            <span className={styles.salePrice}>{formatCurrency(salePrice)}원</span>
+            <span className={styles.salePrice}>{formatPriceToKorean(salePrice)}원</span>
           </p>
         </div>
       </div>

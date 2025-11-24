@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 
 import { CheckSmallIcon, ChevronSmallDownIcon } from "@assets/icons";
 
+import { useDropdownPosition } from "@widgets/select-ticket/hooks/use-dropdown-position";
 import type { DropdownOption } from "@widgets/select-ticket/types/dropdown";
 
 import { useDropdownContext } from "./dropdown-context";
@@ -27,8 +28,9 @@ interface Props {
 }
 
 const Dropdown = ({ label, options }: Props) => {
-  const { openDropdown, isOpen, selectedId, selectOption, registerRef } = useDropdownContext();
+  const { openDropdown, isOpen, selectedId, selectOption, setDropdownRef } = useDropdownContext();
   const containerRef = useRef<HTMLDivElement>(null);
+  const dropdownListRef = useRef<HTMLDivElement>(null);
 
   const currentIsOpen = isOpen(label);
   const currentSelectedId = selectedId(label);
@@ -37,12 +39,14 @@ const Dropdown = ({ label, options }: Props) => {
   const displayText = selectedOption && formatDateLabel(selectedOption.label);
   const hasDisplayText = isSelected && displayText;
 
+  const dropdownPosition = useDropdownPosition(currentIsOpen, containerRef, dropdownListRef);
+
   useEffect(() => {
-    registerRef(label, containerRef.current);
+    setDropdownRef(label, containerRef.current);
     return () => {
-      registerRef(label, null);
+      setDropdownRef(label, null);
     };
-  }, [label, registerRef]);
+  }, [label, setDropdownRef]);
 
   return (
     <div ref={containerRef} className={styles.container}>
@@ -62,21 +66,26 @@ const Dropdown = ({ label, options }: Props) => {
         />
       </button>
 
-      {currentIsOpen && (
-        <div className={styles.dropdownList}>
-          <div className={styles.dropdownFirstItem} onClick={() => selectOption(label, null)}>
+      {currentIsOpen && dropdownPosition && (
+        <div ref={dropdownListRef} className={styles.dropdownList}>
+          <button
+            type="button"
+            className={styles.dropdownFirstItem}
+            onClick={() => selectOption(label, null)}
+          >
             <CheckSmallIcon width={24} height={24} className={styles.dropdownItemIcon} />
             <span className={styles.dropdownItemLabel}>전체</span>
-          </div>
+          </button>
 
           {options.map((option) => (
-            <div
+            <button
+              type="button"
               key={option.id}
               className={styles.dropdownItem}
               onClick={() => selectOption(label, option.id)}
             >
               <span className={styles.dropdownItemLabel}>{option.label}</span>
-            </div>
+            </button>
           ))}
         </div>
       )}

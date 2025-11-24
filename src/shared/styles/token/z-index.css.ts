@@ -1,4 +1,5 @@
 export const zIndex = {
+  content: "1",
   header: "1000",
   tabbar: "1000",
   bottomSheet: "1500",

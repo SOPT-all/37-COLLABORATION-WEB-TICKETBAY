@@ -14,6 +14,7 @@
     "generate:types": "openapi-typescript https://api.serverzzz.p-e.kr/v3/api-docs/v1 -o ./src/shared/types/schema.d.ts"
   },
   "dependencies": {
+    "123": "link:",
     "@tanstack/react-query": "^5.90.10",
     "axios": "^1.13.2",
     "react": "^19.2.0",

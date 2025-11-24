@@ -1,3 +1,5 @@
+import { formatCurrency } from "@widgets/home/utils/format-currency";
+
 import * as styles from "./gift-card-item.css";
 
 interface Props {
@@ -25,9 +27,9 @@ const GiftCardItem = ({
         <p className={styles.productTitle}>{productTitle}</p>
         <div className={styles.priceContainer}>
           <p className={styles.originalPrice}>{originalPrice}원</p>
-          <p className={styles.priceContainer}>
+          <p className={styles.discountPrice}>
             <span className={styles.discountRate}>{discountRate}%</span>
-            <span className={styles.salePrice}>{salePrice}</span>
+            <span className={styles.salePrice}>{formatCurrency(salePrice)}원</span>
           </p>
         </div>
       </div>

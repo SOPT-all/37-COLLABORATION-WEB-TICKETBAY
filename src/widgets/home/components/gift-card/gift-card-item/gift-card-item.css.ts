@@ -41,6 +41,11 @@ export const priceContainer = style({
   gap: "0.4rem",
 });
 
+export const discountPrice = style({
+  display: "flex",
+  gap: "0.2rem",
+});
+
 export const discountRate = style({
   color: themeVars.color.primary,
 });

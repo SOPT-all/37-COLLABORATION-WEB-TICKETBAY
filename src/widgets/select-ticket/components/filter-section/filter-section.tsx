@@ -1,4 +1,6 @@
 import CheckBox from "@widgets/select-ticket/components/check-box/check-box";
+import { DropdownProvider } from "@widgets/select-ticket/components/dropdown/dropdown-context";
+import DropdownList from "@widgets/select-ticket/components/dropdown-list/dropdown-list";
 import SafetyNoticeBar from "@widgets/select-ticket/components/safety-notice-bar/safety-notice-bar";
 
 import * as styles from "./filter-section.css";
@@ -18,7 +20,9 @@ const FilterSection = () => {
   return (
     <div className={styles.container}>
       <SafetyNoticeBar label="입장 안심 이용 가능" />
-      {/* @TODO: <DropdownList /> */}
+      <DropdownProvider>
+        <DropdownList />
+      </DropdownProvider>
       <div className={styles.checkBoxes}>
         {CHECK_BOXES.map(({ id, label }) => (
           <CheckBox key={id} label={label} />

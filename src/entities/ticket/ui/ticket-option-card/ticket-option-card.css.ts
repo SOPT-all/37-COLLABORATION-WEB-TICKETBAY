@@ -15,7 +15,7 @@ export const container = style({
 
   selectors: {
     "&:active": {
-      backgroundColor: themeVars.color.grayscale8, // 꾹 누르고 있을 때 배경
+      backgroundColor: themeVars.color.grayscale8,
     },
   },
 });
@@ -97,10 +97,10 @@ export const priceContainer = style({
 
 export const priceTitle = style({
   ...themeVars.fontStyles.caption1_medium,
-  color: themeVars.color.semantic,
+  color: themeVars.color.primary,
 });
 
 export const priceValue = style({
   ...themeVars.fontStyles.body1_bold,
-  color: themeVars.color.semantic,
+  color: themeVars.color.primary,
 });

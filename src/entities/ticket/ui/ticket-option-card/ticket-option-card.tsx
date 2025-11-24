@@ -85,7 +85,7 @@ const TicketOptionCard = ({
       </div>
 
       <div className={styles.priceContainer}>
-        <p className={styles.priceTitle}>총 결제 금액</p>
+        <p className={styles.priceTitle}>한 매 가격</p>
         <p className={styles.priceValue}>{formatPriceToKorean(price)}원</p>
       </div>
     </div>

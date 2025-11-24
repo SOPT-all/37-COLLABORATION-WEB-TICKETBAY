@@ -24,21 +24,11 @@ const CATEGORIES = [
 ] as const;
 
 const Category = () => {
-  const firstRow = CATEGORIES.slice(0, 4);
-  const secondRow = CATEGORIES.slice(4, 8);
-
   return (
     <div className={styles.container}>
-      <div className={styles.firstRow}>
-        {firstRow.map(({ id, label, Icon }) => (
-          <CategoryIcon key={id} icon={<Icon />} text={label} />
-        ))}
-      </div>
-      <div className={styles.secondRow}>
-        {secondRow.map(({ id, label, Icon }) => (
-          <CategoryIcon key={id} icon={<Icon />} text={label} />
-        ))}
-      </div>
+      {CATEGORIES.map(({ id, label, Icon }) => (
+        <CategoryIcon key={id} icon={<Icon />} text={label} />
+      ))}
     </div>
   );
 };

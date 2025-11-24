@@ -31,7 +31,6 @@ export const rightSection = style({
 export const iconButton = style({
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
   width: "4.8rem",
   height: "4.8rem",
   backgroundColor: "transparent",

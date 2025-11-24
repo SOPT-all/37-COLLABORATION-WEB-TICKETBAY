@@ -43,7 +43,6 @@ export const floatingButtonHelp = style([
   },
 ]);
 
-
 export const floatingButtonContainer = style({
   position: "fixed",
   top: 0,
@@ -54,6 +53,5 @@ export const floatingButtonContainer = style({
   minWidth: "var(--min-width)",
   height: "100dvh",
   zIndex: themeVars.zIndex.flotingbtn,
+  pointerEvents: "none",
 });
-
-

@@ -30,16 +30,21 @@ interface Props {
 const Dropdown = ({ label, options }: Props) => {
   const { openDropdown, isOpen, selectedId, selectOption, setDropdownRef } = useDropdownContext();
   const containerRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownListRef = useRef<HTMLDivElement>(null);
 
   const currentIsOpen = isOpen(label);
   const currentSelectedId = selectedId(label);
   const isSelected = currentSelectedId != null;
   const selectedOption = options.find((opt) => opt.id === currentSelectedId);
-  const displayText = selectedOption && formatDateLabel(selectedOption.label);
-  const hasDisplayText = isSelected && displayText;
+  const displayText = selectedOption ? formatDateLabel(selectedOption.label) : null;
 
-  const dropdownPosition = useDropdownPosition(currentIsOpen, containerRef, dropdownListRef);
+  const dropdownPosition = useDropdownPosition(
+    currentIsOpen,
+    containerRef,
+    buttonRef,
+    dropdownListRef,
+  );
 
   useEffect(() => {
     setDropdownRef(label, containerRef.current);
@@ -51,13 +56,14 @@ const Dropdown = ({ label, options }: Props) => {
   return (
     <div ref={containerRef} className={styles.container}>
       <button
+        ref={buttonRef}
         type="button"
         className={styles.dropdownButton({ isSelected })}
         onClick={() => openDropdown(label)}
       >
         <div className={styles.value}>
           <span>{label}</span>
-          {hasDisplayText && <span> {displayText}</span>}
+          {displayText && <span> {displayText}</span>}
         </div>
         <ChevronSmallDownIcon
           className={styles.icon({ isOpen: currentIsOpen })}

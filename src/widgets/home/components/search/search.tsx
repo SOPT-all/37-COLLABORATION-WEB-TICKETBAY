@@ -5,7 +5,11 @@ import * as styles from "./search.css";
 const Search = () => {
   return (
     <div className={styles.container}>
-      <p className={styles.placeholder}>공연명, 가수명 등 검색</p>
+      <input
+        type="text"
+        placeholder="공연명, 가수명 등 검색"
+        className={styles.input}
+      />
       <button type="button" className={styles.searchButton}>
         <SearchIcon width={24} height={24} />
       </button>

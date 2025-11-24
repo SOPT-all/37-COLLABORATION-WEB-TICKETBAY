@@ -17,10 +17,20 @@ export const container = style({
   backdropFilter: "blur(2px)",
 });
 
-export const placeholder = style({
+export const input = style({
+  flex: 1,
   ...themeVars.fontStyles.body3_regular,
   color: themeVars.color.grayscale9,
-  whiteSpace: "nowrap",
+  backgroundColor: "transparent",
+  outline: "none",
+  selectors: {
+    "&::placeholder": {
+      color: themeVars.color.grayscale9,
+    },
+    "&:focus::placeholder": {
+      opacity: 0,
+    },
+  },
 });
 
 export const searchButton = style({

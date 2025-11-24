@@ -1,6 +1,5 @@
 import { RouterProvider } from "react-router";
-
-import { QueryProvider } from "@shared/apis/config/query-provider";
+import { QueryProvider } from "@shared/query/query-provider";
 import { router } from "@shared/router/router";
 import ThemeProvider from "@shared/styles/theme-provider";
 

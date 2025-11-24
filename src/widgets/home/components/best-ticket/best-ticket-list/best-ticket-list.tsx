@@ -1,6 +1,5 @@
+import BestTicketItem from "@widgets/home/components/best-ticket/best-ticket-item/best-ticket-item";
 import { TOP_RANK_PAGE_0, TOP_RANK_PAGE_1 } from "@widgets/home/constants/best-rank";
-
-import BestTicketItem from "../best-ticket-item/best-ticket-item";
 
 import * as styles from "./best-ticket-list.css";
 

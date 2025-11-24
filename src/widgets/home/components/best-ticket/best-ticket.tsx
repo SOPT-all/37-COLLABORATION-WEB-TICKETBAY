@@ -1,7 +1,7 @@
-import Tab from "@shared/components/tab/tab";
+import BestTicketList from "@widgets/home/components/best-ticket/best-ticket-list/best-ticket-list";
+import Section from "@widgets/home/components/section/section";
 
-import Section from "../section/section";
-import BestTicketList from "./best-ticket-list/best-ticket-list";
+import Tab from "@shared/components/tab/tab";
 
 import * as styles from "./best-ticket.css";
 

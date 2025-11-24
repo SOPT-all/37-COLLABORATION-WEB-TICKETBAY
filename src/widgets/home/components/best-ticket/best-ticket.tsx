@@ -1,7 +1,7 @@
 import Tab from "@shared/components/tab/tab";
 
-import BestTicketList from "../best-ticket-list/best-ticket-list";
 import Section from "../section/section";
+import BestTicketList from "./best-ticket-list/best-ticket-list";
 
 const BestTicket = () => {
   return (

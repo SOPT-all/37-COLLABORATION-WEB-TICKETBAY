@@ -7,25 +7,25 @@ import Tab from "@shared/components/tab/tab";
 import * as styles from "./gift-card.css";
 
 export const TAB = [
-  { id: 0, value: "전체" },
-  { id: 1, value: "카페" },
-  { id: 2, value: "치킨" },
-  { id: 3, value: "버거/피자" },
+  { id: "0", value: "전체" },
+  { id: "1", value: "카페" },
+  { id: "2", value: "치킨" },
+  { id: "3", value: "버거/피자" },
 ];
 const GiftCard = () => {
   return (
     <Section title="모바일 " highlight="상품권샵" showMore={true}>
       <div className={styles.container}>
-        <Tab.Container initialValue="0">
+        <Tab.Container initialValue={TAB[0].id}>
           <Tab.List>
             {TAB.map((tab) => (
-              <Tab.Item key={tab.id} value={String(tab.id)}>
+              <Tab.Item key={tab.id} value={tab.id}>
                 {tab.value}
               </Tab.Item>
             ))}
           </Tab.List>
           <div className={styles.list}>
-            <Tab.Panel value="0">
+            <Tab.Panel value={TAB[0].id}>
               {GIFT_CARD_LIST.map((item) => (
                 <GiftCardItem
                   imageUrl={item.imageUrl}

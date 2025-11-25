@@ -5,12 +5,12 @@ import { CheckIcon, ChevronSmallDownIcon, ChevronSmallUpIcon } from "@assets/ico
 
 import * as styles from "./accordion.css";
 
-interface AccordionItemProps {
+interface Props {
   title: string;
   children: ReactNode;
 }
 
-const AccordionItem = ({ title, children }: AccordionItemProps) => {
+const Accordion = ({ title, children }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
@@ -37,4 +37,4 @@ const AccordionItem = ({ title, children }: AccordionItemProps) => {
   );
 };
 
-export default AccordionItem;
+export default Accordion;

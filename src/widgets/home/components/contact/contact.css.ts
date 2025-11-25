@@ -14,5 +14,5 @@ export const telephone = style({
 });
 
 export const text = style({
-  ...themeVars.fontStyles.body2_medium,
+  ...themeVars.fontStyles.caption1_medium,
 });

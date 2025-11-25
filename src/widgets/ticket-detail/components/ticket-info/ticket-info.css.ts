@@ -16,7 +16,7 @@ export const headerRow = style({
   alignItems: "center",
   padding: "1rem 0",
   borderBottom: `1px solid ${themeVars.color.grayscale7}`,
-  marginBottom: "0.1rem",
+  marginBottom: "1rem",
 });
 
 // "상품 정보" 타이틀

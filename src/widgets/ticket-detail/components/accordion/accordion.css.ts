@@ -44,12 +44,9 @@ export const title = style({
 });
 
 // 헤더 우측 화살표
-export const arrowWrapper = style({
-  width: "2.5rem",
-  height: "2.5rem",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+export const arrow = style({
+  width: "2rem",
+  height: "2rem",
   flexShrink: 0,
 });
 

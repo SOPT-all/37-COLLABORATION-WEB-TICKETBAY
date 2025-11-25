@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { TicketResponse } from "@entities/ticket/types/types";
 
 import CompareAddButton from "@shared/components/compare-add-button/compare-add-button";
 import { formatDateToDot } from "@shared/utils/format-date-to-dot";
@@ -8,24 +9,12 @@ import * as styles from "./ticket-option-card.css";
 
 const DELIMITER = " | ";
 
-interface Props {
+interface Props extends TicketResponse {
   onClickCard?: () => void;
-  onClickCompareButton?: () => void;
-
-  date: string;
-  detailName: string;
-  area: number;
-  seatColumn: number;
-  seatType: string;
-  seatPosition: string;
-  amount: number;
-  price: number;
 }
 
 const TicketOptionCard = ({
   onClickCard,
-  onClickCompareButton,
-
   date,
   detailName,
   area,
@@ -40,7 +29,6 @@ const TicketOptionCard = ({
   const handleCompareButtonClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsCompareButtonActive((prev) => !prev);
-    onClickCompareButton?.();
   };
 
   return (
@@ -48,7 +36,7 @@ const TicketOptionCard = ({
       <div className={styles.matchDateContainer}>
         <div className={styles.matchDateContent}>
           <p className={styles.matchDateContentTitle}>경기 일시</p>
-          <p className={styles.matchDateContentValue}>{formatDateToDot(date)}</p>
+          <p className={styles.matchDateContentValue}>{formatDateToDot(date!)}</p>
         </div>
         <CompareAddButton
           size="sm"
@@ -86,7 +74,7 @@ const TicketOptionCard = ({
 
       <div className={styles.priceContainer}>
         <p className={styles.priceTitle}>한 매 가격</p>
-        <p className={styles.priceValue}>{formatPriceToKorean(price)}원</p>
+        <p className={styles.priceValue}>{formatPriceToKorean(price!)}원</p>
       </div>
     </div>
   );

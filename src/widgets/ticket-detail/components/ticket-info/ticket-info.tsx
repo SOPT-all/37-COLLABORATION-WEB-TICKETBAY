@@ -1,6 +1,10 @@
+import { MOCK_TICKET_INFO } from "@widgets/ticket-detail/constants/ticket-info.mock";
+
 import * as styles from "./ticket-info.css";
 
 export const TicketInfo = () => {
+  const data = MOCK_TICKET_INFO;
+
   return (
     <section className={styles.container}>
       {/* 상단 내용 */}
@@ -8,29 +12,27 @@ export const TicketInfo = () => {
         <p className={styles.sectionTitle}>상품 정보</p>
         <p className={styles.productNumber}>
           <span className={styles.productNumberLabel}>상품번호</span>
-          <span className={styles.productNumberValue}>9702343334630</span>
+          <span className={styles.productNumberValue}>{data.productNumber}</span>
         </p>
       </div>
 
       {/* 하단 내용 */}
       <div className={styles.content}>
-        <p className={styles.breadcrumb}>
-          스포츠 &gt; 2025 프로야구 포스트시즌 &gt; 한국시리즈 5차전 [대전]
-        </p>
+        <p className={styles.breadcrumb}>{data.breadcrumb}</p>
 
         <div className={styles.metaBlock}>
           <p className={styles.metaRow}>
             <span className={styles.metaLabel}>경기 일시</span>
-            <span className={styles.metaValue}>2025.10.31 18:30</span>
+            <span className={styles.metaValue}>{data.date}</span>
           </p>
           <p className={styles.metaRow}>
             <span className={styles.metaLabel}>경기 장소</span>
-            <span className={styles.metaValue}>한화생명볼파크</span>
+            <span className={styles.metaValue}>{data.location}</span>
           </p>
         </div>
 
-        <p className={styles.mainTitle}>LG vs 한화 | 507구역 | 2열</p>
-        <p className={styles.seatType}>외야 지정석</p>
+        <p className={styles.mainTitle}>{data.title}</p>
+        <p className={styles.seatType}>{data.seatType}</p>
       </div>
     </section>
   );

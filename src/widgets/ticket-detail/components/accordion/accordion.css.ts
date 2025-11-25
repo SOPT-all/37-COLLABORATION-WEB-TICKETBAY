@@ -75,7 +75,7 @@ export const safetyWrapper = style({
   flexDirection: "column",
   rowGap: "1rem",
   padding: "1.6rem",
-  paddingRight: "31px",
+  paddingRight: "3.1rem",
 });
 
 // 구매 안전 프로그램 콘텐츠 내부 텍스트
@@ -84,7 +84,7 @@ export const safetyItem = style([
   {
     color: themeVars.color.grayscale2,
     position: "relative",
-    paddingLeft: "12px",
+    paddingLeft: "1.2rem",
 
     selectors: {
       "&::before": {
@@ -92,8 +92,8 @@ export const safetyItem = style([
         position: "absolute",
         left: 0,
         top: "0.9em",
-        width: "3px",
-        height: "3px",
+        width: "0.3rem",
+        height: "0.3rem",
         borderRadius: "50%",
         backgroundColor: themeVars.color.grayscale3,
         transform: "translateY(-50%)",

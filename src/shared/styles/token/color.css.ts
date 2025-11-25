@@ -14,4 +14,5 @@ export const color = {
 
   semantic: "#F1494B",
   yellow: "#FFCF5C",
+  blue: "#00BEFF",
 };

@@ -33,7 +33,7 @@ export const checkIconWrapper = style({
   alignItems: "center",
   justifyContent: "center",
   flexShrink: 0,
-  color: "#00BEFF",
+  color: themeVars.color.blue,
 });
 
 // 헤더 타이틀 텍스트

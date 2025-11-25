@@ -13,8 +13,8 @@ const SafetyProgramAccordion = () => {
   return (
     <AccordionItem title="티켓베이 구매 안전 프로그램">
       <div className={styles.safetyWrapper}>
-        {SAFETY_TEXTS.map((text) => (
-          <p key={text} className={styles.safetyItem}>
+        {SAFETY_TEXTS.map((text, index) => (
+          <p key={index} className={styles.safetyItem}>
             {text}
           </p>
         ))}

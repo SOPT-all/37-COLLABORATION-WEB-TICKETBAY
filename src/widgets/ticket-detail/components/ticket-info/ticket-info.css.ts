@@ -14,7 +14,7 @@ export const headerRow = style({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  paddingBlock: "1rem",
+  padding: "1rem 0",
   borderBottom: `1px solid ${themeVars.color.grayscale7}`,
   marginBottom: "0.1rem",
 });

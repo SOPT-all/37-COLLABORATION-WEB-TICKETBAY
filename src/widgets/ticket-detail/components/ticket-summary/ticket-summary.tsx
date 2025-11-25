@@ -1,17 +1,11 @@
 import { HelpCircleIcon } from "@assets/icons";
 
+import { MOCK_TICKET_SUMMARY } from "@widgets/ticket-detail/constants/ticket-summary.mock";
+
 import * as styles from "./ticket-summary.css";
 
-const MOCK_SUMMARY = {
-  hasTicket: "현재 티켓 보유 중",
-  pricePerTicket: "150,000원",
-  quantity: "1매",
-  totalPrice: "150,000원",
-  pointText: "팬파워 345FP 적립",
-};
-
 export default function TicketSummary() {
-  const { hasTicket, pricePerTicket, quantity, totalPrice, pointText } = MOCK_SUMMARY;
+  const { hasTicket, pricePerTicket, quantity, totalPrice, pointText } = MOCK_TICKET_SUMMARY;
 
   return (
     <section className={styles.container} aria-label="티켓 가격 요약">

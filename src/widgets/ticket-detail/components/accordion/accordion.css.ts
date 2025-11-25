@@ -52,7 +52,6 @@ export const arrow = style({
 
 // 공통 내부 콘텐츠
 export const content = style({
-  width: "100%",
   boxSizing: "border-box",
   padding: "1.6rem 2rem 2.4rem",
   backgroundColor: themeVars.color.grayscale8,

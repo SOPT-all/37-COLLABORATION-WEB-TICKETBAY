@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Header from "@widgets/home/components/header/header";
 import Sidebar from "@widgets/home/components/sidebar/sidebar";
+import Search from "@widgets/home/components/search/search";
 
 import * as styles from "./home.css";
 
@@ -22,6 +23,8 @@ function Home() {
       <div className={styles.gradient} />
       <Header onMenuClick={handleMenuClick} />
       <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
+      <Header />
+      <Search />
     </div>
   );
 }

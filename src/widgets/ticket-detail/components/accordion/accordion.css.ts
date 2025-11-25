@@ -15,7 +15,7 @@ export const headerButton = style({
   alignItems: "center",
   justifyContent: "space-between",
   width: "100%",
-  padding: "1.6rem 2rem",
+  padding: "1.4rem 3rem 1.4rem 1.6rem",
   boxSizing: "border-box",
   backgroundColor: themeVars.color.grayscale9,
 });

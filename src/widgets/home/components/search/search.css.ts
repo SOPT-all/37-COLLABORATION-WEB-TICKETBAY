@@ -6,12 +6,12 @@ export const container = style({
   position: "relative",
   display: "flex",
   alignItems: "center",
-  marginTop: "5.4rem",
+  margin: "0 1.5rem",
   height: "3.6rem",
   padding: "0 1.6rem 0 1.7rem",
   zIndex: themeVars.zIndex.content, 
   backgroundColor: "rgba(255, 255, 255, 0.2)",
-  border: "1px solid rgba(255, 255, 255, 1)",
+  border: `1px solid ${themeVars.color.grayscale9}`,
   borderRadius: "30px",
   backdropFilter: "blur(2px)",
 });
@@ -33,9 +33,6 @@ export const input = style({
 });
 
 export const searchButton = style({
-width: "2.4rem",
-height: "2.4rem",
-padding: "1rem",
 justifyContent: "center",
 alignItems: "center",
   backgroundColor: "transparent",

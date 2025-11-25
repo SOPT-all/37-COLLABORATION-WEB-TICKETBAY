@@ -85,19 +85,5 @@ export const safetyItem = style([
     color: themeVars.color.grayscale2,
     position: "relative",
     paddingLeft: "1.2rem",
-
-    selectors: {
-      "&::before": {
-        content: '""',
-        position: "absolute",
-        left: 0,
-        top: "0.9em",
-        width: "0.3rem",
-        height: "0.3rem",
-        borderRadius: "50%",
-        backgroundColor: themeVars.color.grayscale3,
-        transform: "translateY(-50%)",
-      },
-    },
   },
 ]);

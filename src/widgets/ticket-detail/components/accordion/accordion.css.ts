@@ -44,7 +44,7 @@ export const title = style({
 });
 
 // 헤더 우측 화살표
-export const arrow = style({
+export const arrowWrapper = style({
   width: "2rem",
   height: "2rem",
   flexShrink: 0,
@@ -53,7 +53,6 @@ export const arrow = style({
 // 공통 내부 콘텐츠
 export const content = style({
   boxSizing: "border-box",
-  padding: "1.6rem 2rem 2.4rem",
   backgroundColor: themeVars.color.grayscale8,
 });
 
@@ -61,8 +60,6 @@ export const content = style({
 export const seatMapWrapper = style({
   display: "flex",
   justifyContent: "center",
-  margin: "-1.6rem -2rem -2.4rem",
-  padding: "1.6rem 2rem 2.4rem",
   backgroundColor: themeVars.color.grayscale9,
 });
 
@@ -77,6 +74,7 @@ export const safetyWrapper = style({
   display: "flex",
   flexDirection: "column",
   rowGap: "1rem",
+  padding: "1.6rem",
   paddingRight: "31px",
 });
 

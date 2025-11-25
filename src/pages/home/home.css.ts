@@ -10,6 +10,9 @@ export const container = style({
   minWidth: "var(--min-width)",
   maxWidth: "var(--max-width)",
   minHeight: "24.9rem", 
+  overflow: "hidden",
+  padding: "0 1.5rem",
+  backgroundColor: themeVars.color.grayscale9,
 });
 
 export const backgroundImage = style({
@@ -28,9 +31,10 @@ export const backgroundImage = style({
 export const gradient = style({
   position: "absolute",
   top: "17.9rem",
+  left: 0,
   width: "100%",
   height: "7rem",
   zIndex: themeVars.zIndex.background,
-  background: "var(--color_black_gradient, linear-gradient(0deg, #F8F9FA 0%, #000 100%))",
+  background: "linear-gradient(180deg, #000 0%, #F8F9FA 100%)",
 });
 

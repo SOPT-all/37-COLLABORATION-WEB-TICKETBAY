@@ -4,7 +4,7 @@ import { themeVars } from "@shared/styles/theme.css";
 export const container = style({
   display: "grid",
   gridTemplateColumns: "repeat(4, 1fr)",
-  padding: "1.2rem 4.05rem",
+  padding: "1.2rem 1rem",
   justifyContent: "center",
   alignItems: "center",
   borderRadius: "16px",

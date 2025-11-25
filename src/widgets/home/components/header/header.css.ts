@@ -18,6 +18,7 @@ export const logo = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-start",
+  color: themeVars.color.grayscale9,
 });
 
 export const rightSection = style({

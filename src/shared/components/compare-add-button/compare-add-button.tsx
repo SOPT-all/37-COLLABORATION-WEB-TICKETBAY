@@ -4,8 +4,8 @@ import * as styles from "./compare-add-button.css";
 
 interface Props {
   size: "sm" | "lg";
-  isActive: boolean;
-  onClick?: () => void;
+  isActive?: boolean;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 const CompareAddButton = ({ size, isActive = false, onClick }: Props) => {

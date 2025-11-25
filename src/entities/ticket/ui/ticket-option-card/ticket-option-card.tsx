@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import CompareAddButton from "@shared/components/compare-add-button/compare-add-button";
 import { formatDateToDot } from "@shared/utils/format-date-to-dot";
 import { formatPriceToKorean } from "@shared/utils/format-price-to-korean";
@@ -7,7 +9,6 @@ import * as styles from "./ticket-option-card.css";
 const DELIMITER = " | ";
 
 interface Props {
-  isCompareButtonActive: boolean;
   onClickCard?: () => void;
   onClickCompareButton?: () => void;
 
@@ -22,7 +23,6 @@ interface Props {
 }
 
 const TicketOptionCard = ({
-  isCompareButtonActive,
   onClickCard,
   onClickCompareButton,
 
@@ -35,6 +35,14 @@ const TicketOptionCard = ({
   amount,
   price,
 }: Props) => {
+  const [isCompareButtonActive, setIsCompareButtonActive] = useState(false);
+
+  const handleCompareButtonClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsCompareButtonActive((prev) => !prev);
+    onClickCompareButton?.();
+  };
+
   return (
     <div className={styles.container} onClick={onClickCard}>
       <div className={styles.matchDateContainer}>
@@ -45,7 +53,7 @@ const TicketOptionCard = ({
         <CompareAddButton
           size="sm"
           isActive={isCompareButtonActive}
-          onClick={onClickCompareButton}
+          onClick={handleCompareButtonClick}
         />
       </div>
 
@@ -77,7 +85,7 @@ const TicketOptionCard = ({
       </div>
 
       <div className={styles.priceContainer}>
-        <p className={styles.priceTitle}>총 결제 금액</p>
+        <p className={styles.priceTitle}>한 매 가격</p>
         <p className={styles.priceValue}>{formatPriceToKorean(price)}원</p>
       </div>
     </div>

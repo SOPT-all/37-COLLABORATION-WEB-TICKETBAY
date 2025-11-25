@@ -1,6 +1,6 @@
 // 아이콘 배럴 파일
 // 실제 아이콘이 생기면 아래처럼 개별 export 로 추가해서 사용하시면 됩니다.
-
+export { default as TicketbayTextLogoIcon } from "@assets/svg/icon_textlogo.svg?react";
 export { default as MusicalIcon } from "@assets/svg/icon_ musical.svg?react";
 export { default as CartIcon } from "@assets/svg/icon_cart.svg?react";
 export { default as CartSelectedIcon } from "@assets/svg/icon_cart_selected.svg?react";
@@ -41,6 +41,7 @@ export { default as ResetIcon } from "@assets/svg/icon_reset.svg?react";
 export { default as SearchIcon } from "@assets/svg/icon_search.svg?react";
 export { default as SoundIcon } from "@assets/svg/icon_sound.svg?react";
 export { default as SportsIcon } from "@assets/svg/icon_sports.svg?react";
+export { default as StarFiveIcon } from "@assets/svg/icon_star_five.svg?react";
 export { default as TicketinSulationIcon } from "@assets/svg/icon_ticketin_sulation.svg?react";
 export { default as TicketregisterIcon } from "@assets/svg/icon_ticketregister.svg?react";
 export { default as TicketregisterSelectedIcon } from "@assets/svg/icon_ticketregister_selected.svg?react";

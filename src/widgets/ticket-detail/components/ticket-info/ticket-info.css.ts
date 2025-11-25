@@ -49,13 +49,13 @@ export const content = style({
   paddingTop: "1.6rem",
   display: "flex",
   flexDirection: "column",
+  gap: "0.3rem",
 });
 
 // 브레드크럼 (스포츠 > 2025 프로야구 포스트시즌 > 한국시리즈 5차전 [대전])
 export const breadcrumb = style({
   ...themeVars.fontStyles.caption1_medium,
   color: themeVars.color.grayscale3,
-  marginBottom: "0.3rem",
   display: "flex",
   alignItems: "center",
 });

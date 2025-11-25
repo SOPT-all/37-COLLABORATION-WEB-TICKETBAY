@@ -12,12 +12,10 @@ export const container = style({
   width: "100%",
   minWidth: "var(--min-width)",
   maxWidth: "var(--max-width)",
-  minHeight: "24.9rem", 
+  minHeight: CONTAINER_MIN_HEIGHT, 
   overflow: "hidden",
   padding: "0 1.5rem",
   backgroundColor: themeVars.color.grayscale9,
-  overflow: "hidden",
-
 });
 
 export const backgroundImage = style({
@@ -35,7 +33,7 @@ export const backgroundImage = style({
 
 export const gradient = style({
   position: "absolute",
-  top: "17.9rem",
+  top: `calc(${BACKGROUND_IMAGE_HEIGHT} - ${GRADIENT_OVERLAP})`,
   left: 0,
   width: "100%",
   height: GRADIENT_HEIGHT,

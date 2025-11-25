@@ -23,7 +23,6 @@ function Home() {
       <div className={styles.gradient} />
       <Header onMenuClick={handleMenuClick} />
       <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
-      <Header />
       <Search />
     </div>
   );

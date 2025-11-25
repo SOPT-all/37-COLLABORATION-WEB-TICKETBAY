@@ -87,7 +87,6 @@ export const metaRow = style({
 export const metaLabel = style({
   ...themeVars.fontStyles.body3_regular,
   color: themeVars.color.grayscale3,
-  minWidth: "6.4rem",
 });
 
 // 라벨 오른쪽 값

@@ -6,8 +6,7 @@ export const container = style({
   position: "relative",
   display: "flex",
   alignItems: "center",
-  justifyContent: "space-between",
-  margin: "5.4rem 1.5rem 0 1.5rem",
+  marginTop: "5.4rem",
   height: "3.6rem",
   padding: "0 1.6rem 0 1.7rem",
   zIndex: themeVars.zIndex.content, 
@@ -18,7 +17,7 @@ export const container = style({
 });
 
 export const input = style({
-  flex: 1,
+  width: "100%",
   ...themeVars.fontStyles.body3_regular,
   color: themeVars.color.grayscale9,
   backgroundColor: "transparent",
@@ -34,14 +33,12 @@ export const input = style({
 });
 
 export const searchButton = style({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  padding: "1rem",
-  gap: "1rem",
+width: "2.4rem",
+height: "2.4rem",
+padding: "1rem",
+justifyContent: "center",
+alignItems: "center",
   backgroundColor: "transparent",
-  border: "none",
   color: themeVars.color.grayscale9,
-  cursor: "pointer"
 });
 

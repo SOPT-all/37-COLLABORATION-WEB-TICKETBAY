@@ -5,7 +5,6 @@ import { themeVars } from "@shared/styles/theme.css";
 // 전체 래퍼
 export const container = style({
   padding: "1rem 1.6rem 1.6rem",
-  borderBottom: `1px solid ${themeVars.color.grayscale7}`,
   backgroundColor: themeVars.color.grayscale9,
 });
 
@@ -14,9 +13,9 @@ export const headerRow = style({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  padding: "1rem 0",
+  margin: "0 -1.6rem 0",
+  padding: "1rem 1.6rem",
   borderBottom: `1px solid ${themeVars.color.grayscale7}`,
-  marginBottom: "1rem",
 });
 
 // "상품 정보" 타이틀
@@ -49,7 +48,7 @@ export const content = style({
   paddingTop: "1.6rem",
   display: "flex",
   flexDirection: "column",
-  gap: "0.3rem",
+  gap: "0.5rem",
 });
 
 // 브레드크럼 (스포츠 > 2025 프로야구 포스트시즌 > 한국시리즈 5차전 [대전])
@@ -99,8 +98,7 @@ export const metaValue = style({
 export const mainTitle = style({
   ...themeVars.fontStyles.title_semibold,
   color: themeVars.color.grayscale1,
-  marginTop: "1.3rem",
-  marginBottom: "0.5rem",
+  marginTop: "0.8rem",
 });
 
 // 좌석 타입 "외야 지정석"

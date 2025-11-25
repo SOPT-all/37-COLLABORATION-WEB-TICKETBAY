@@ -56,6 +56,18 @@ export const breadcrumb = style({
   ...themeVars.fontStyles.caption1_medium,
   color: themeVars.color.grayscale3,
   marginBottom: "0.3rem",
+  display: "flex",
+  alignItems: "center",
+});
+
+export const breadcrumbIcon = style({
+  margin: "0 0.4rem",
+  verticalAlign: "middle",
+});
+
+export const breadcrumbItem = style({
+  display: "flex",
+  alignItems: "center",
 });
 
 // "경기 일시 / 장소" 묶음

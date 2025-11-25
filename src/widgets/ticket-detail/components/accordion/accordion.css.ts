@@ -38,12 +38,10 @@ export const checkIconWrapper = style({
 });
 
 // 헤더 타이틀 텍스트
-export const title = style([
-  themeVars.fontStyles.body1_medium,
-  {
-    color: themeVars.color.grayscale1,
-  },
-]);
+export const title = style({
+  ...themeVars.fontStyles.body1_medium,
+  color: themeVars.color.grayscale1,
+});
 
 // 헤더 우측 화살표
 export const arrowWrapper = style({

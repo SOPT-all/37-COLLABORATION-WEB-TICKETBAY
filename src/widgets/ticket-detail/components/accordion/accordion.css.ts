@@ -47,7 +47,12 @@ export const title = style({
 export const arrowWrapper = style({
   width: "2rem",
   height: "2rem",
+  transition: "transform 0.2s ease",
   flexShrink: 0,
+});
+
+export const arrowOpen = style({
+  transform: "rotate(180deg)",
 });
 
 // 공통 내부 콘텐츠

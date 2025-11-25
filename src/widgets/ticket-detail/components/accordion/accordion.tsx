@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
 
-import { CheckIcon, ChevronSmallDownIcon, ChevronSmallUpIcon } from "@assets/icons";
+import { CheckIcon, ChevronSmallDownIcon } from "@assets/icons";
 
 import * as styles from "./accordion.css";
 
@@ -27,8 +27,8 @@ const Accordion = ({ title, children }: Props) => {
           <span className={styles.title}>{title}</span>
         </div>
 
-        <span className={styles.arrowWrapper}>
-          {isOpen ? <ChevronSmallUpIcon /> : <ChevronSmallDownIcon />}
+        <span className={`${styles.arrowWrapper} ${isOpen ? styles.arrowOpen : ""}`}>
+          <ChevronSmallDownIcon />
         </span>
       </button>
 

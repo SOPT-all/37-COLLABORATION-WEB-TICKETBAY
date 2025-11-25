@@ -26,9 +26,11 @@ const CATEGORIES = [
 const Category = () => {
   return (
     <div className={styles.container}>
-      {CATEGORIES.map(({ id, label, Icon }) => (
-        <CategoryIcon key={id} icon={<Icon />} text={label} />
-      ))}
+      <div className={styles.gridContainer}>
+        {CATEGORIES.map(({ id, label, Icon }) => (
+          <CategoryIcon key={id} icon={<Icon />} text={label} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -51,3 +51,4 @@ export { default as TicketregisterIcon } from "@assets/svg/icon_ticketregister.s
 export { default as TicketregisterSelectedIcon } from "@assets/svg/icon_ticketregister_selected.svg?react";
 export { default as ToggleIcon } from "@assets/svg/icon_toggle.svg?react";
 export { default as TravelIcon } from "@assets/svg/icon_travel.svg?react";
+export { default as YoutubeIcon } from "@assets/svg/icon_youtube.svg?react";

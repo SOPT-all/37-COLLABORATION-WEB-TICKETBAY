@@ -6,8 +6,7 @@ import { themeVars } from "@shared/styles/theme.css";
 export const container = style({
   display: "flex",
   flexDirection: "column",
-  paddingBlock: "2rem",
-  paddingInline: "1.6rem",
+  padding: "2rem 1.6rem",
   gap: "1rem",
 });
 

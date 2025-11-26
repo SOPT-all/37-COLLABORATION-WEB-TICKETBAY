@@ -22,46 +22,109 @@ const fadeIn = keyframes({
   },
 });
 
-export const sidebarDim = style({
+const fadeOut = keyframes({
+  from: {
+    opacity: 1,
+  },
+  to: {
+    opacity: 0,
+  },
+});
+
+const slideOut = keyframes({
+  from: {
+    transform: "translateX(0)",
+  },
+  to: {
+    transform: "translateX(100%)",
+  },
+});
+
+const sidebarWrapper = style({
   position: "fixed",
   top: 0,
   left: 0,
-  right: "70vw",
+  right: 0,
   bottom: 0,
-  backgroundColor: "rgba(0, 0, 0, 0.4)",
+  width: "100vw",
+  height: "100vh",
+  maxWidth: "100vw",
+  overflow: "hidden",
   zIndex: zIndex.sidebar,
-  animation: `${fadeIn} 0.3s ease-out`,
   "@media": {
     "(min-width: 430px)": {
       left: "calc((100vw - 430px) / 2)",
-      right: "calc((100vw - 430px) / 2 + 26.4rem)",
+      right: "calc((100vw - 430px) / 2)",
+      width: "auto",
+      height: "auto",
+      maxWidth: "430px",
     },
   },
 });
 
-export const sidebarContainer = style({
-  position: "fixed",
+const sidebarDimBase = style({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  width: "100%",
+  height: "100%",
+  backgroundColor: "rgba(0, 0, 0, 0.4)",
+});
+
+export const sidebarWrapperStyle = sidebarWrapper;
+
+export const sidebarDim = style([
+  sidebarDimBase,
+  {
+    animation: `${fadeIn} 0.3s ease-out`,
+  },
+]);
+
+export const sidebarDimClosing = style([
+  sidebarDimBase,
+  {
+    animation: `${fadeOut} 0.3s ease-out forwards`,
+    pointerEvents: "none",
+  },
+]);
+
+const sidebarContainerBase = style({
+  position: "absolute",
   top: 0,
   right: 0,
   bottom: 0,
   width: "70vw",
-  minWidth: "26.4rem",
+  maxWidth: "100%",
   backgroundColor: color.grayscale8,
-  zIndex: zIndex.sidebar,
   boxShadow: "-0.2rem 0 1.4rem 0 rgba(0, 0, 0, 0.1)",
   display: "flex",
   flexDirection: "column",
-  animation: `${slideIn} 0.2s ease-out`,
-  overflow: "hidden",
   isolation: "isolate",
   "@media": {
     "(min-width: 430px)": {
-      right: "calc((100vw - 430px) / 2)",
       maxWidth: "26.4rem",
       width: "26.4rem",
+      minWidth: "26.4rem",
     },
   },
 });
+
+export const sidebarContainer = style([
+  sidebarContainerBase,
+  {
+    animation: `${slideIn} 0.2s ease-out`,
+  },
+]);
+
+export const sidebarContainerClosing = style([
+  sidebarContainerBase,
+  {
+    animation: `${slideOut} 0.2s ease-out forwards`,
+    pointerEvents: "none",
+  },
+]);
 
 export const sidebarHeader = style({
   width: "100%",

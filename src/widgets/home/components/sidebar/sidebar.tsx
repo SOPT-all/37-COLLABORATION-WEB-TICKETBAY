@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 import { ChevronSmallRightIcon, TicketbayTextLogoIcon } from "@assets/icons";
@@ -11,24 +11,51 @@ interface Props {
 }
 
 const Sidebar = ({ isOpen, onClose }: Props) => {
+  const [isClosing, setIsClosing] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
+
   useEffect(() => {
     if (isOpen) {
+      setShouldRender(true);
+      setIsClosing(false);
+      document.documentElement.style.overflowX = "hidden";
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+      document.body.style.overflowX = "hidden";
+    } else if (shouldRender && !isClosing) {
+      setIsClosing(true);
     }
+  }, [isOpen, shouldRender, isClosing]);
 
-    return () => {
+  if (!shouldRender) return null;
+
+  const handleDimClick = () => {
+    if (!isClosing) {
+      onClose();
+    }
+  };
+
+  const handleAnimationEnd = (e: React.AnimationEvent) => {
+    if (e.currentTarget === e.target && isClosing) {
+      setShouldRender(false);
+      setIsClosing(false);
+      document.documentElement.style.overflowX = "";
       document.body.style.overflow = "";
-    };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
+      document.body.style.overflowX = "";
+    }
+  };
 
   return createPortal(
-    <>
-      <div className={styles.sidebarDim} onClick={onClose} />
-      <aside className={styles.sidebarContainer}>
+    <div className={styles.sidebarWrapperStyle}>
+      <div
+        className={isClosing ? styles.sidebarDimClosing : styles.sidebarDim}
+        onClick={handleDimClick}
+      />
+      <aside
+        className={
+          isClosing ? styles.sidebarContainerClosing : styles.sidebarContainer
+        }
+        onAnimationEnd={handleAnimationEnd}
+      >
         <header className={styles.sidebarHeader}>
           <div className={styles.sidebarLogo}>
             <TicketbayTextLogoIcon width={106} height={12} />
@@ -47,7 +74,7 @@ const Sidebar = ({ isOpen, onClose }: Props) => {
           <button type="button" className={styles.menuItem}>이용 가이드</button>
         </div>
       </aside>
-    </>,
+    </div>,
     document.body
   );
 };

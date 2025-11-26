@@ -16,7 +16,15 @@ const Header = ({ onMenuClick }: Props) => {
         <button type="button" className={styles.iconButton}>
           <MessageAlarmIcon width={27} height={27} />
         </button>
-        <button type="button" className={styles.iconButton} onClick={onMenuClick}>
+        <button 
+          type="button" 
+          className={styles.iconButton} 
+          data-hamburger-button 
+          onClick={(e) => {
+            e.stopPropagation();
+            onMenuClick();
+          }}
+        >
           <HamburgermenuIcon width={24} height={24} />
         </button>
       </div>

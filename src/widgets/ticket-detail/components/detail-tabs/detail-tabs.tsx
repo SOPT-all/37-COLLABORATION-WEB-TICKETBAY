@@ -32,7 +32,7 @@ const DetailTabs = () => {
       <section className={styles.container}>
         <Tab.Container initialValue={TAB_KEYS.DETAIL}>
           {/* 상단 탭 영역 (공통 Tab 컴포넌트 사용) */}
-          <div className={styles.tabListWrapper}>
+          <div>
             <Tab.List>
               {TAB_LIST.map((tab) => (
                 <Tab.Item key={tab.value} value={tab.value}>

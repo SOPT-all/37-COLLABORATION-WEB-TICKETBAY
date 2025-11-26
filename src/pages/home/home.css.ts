@@ -64,3 +64,14 @@ export const noticeText = style({
   flex: 1,
 });
 
+export const firstBanner = style({
+  width: "100%",
+  minWidth: "var(--min-width)",
+  maxWidth: "var(--max-width)",
+  padding: "0 1.5rem",
+  marginTop: "1.6rem",
+  height: "auto",
+  borderRadius: "0.8rem",
+  objectFit: "cover",
+});
+

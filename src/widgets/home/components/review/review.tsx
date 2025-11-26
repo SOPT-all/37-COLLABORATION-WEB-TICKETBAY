@@ -13,15 +13,13 @@ const Review = () => {
   useHorizontalScroll(scrollRef);
 
   return (
-    <div style={{ padding: "0 16px" }}>
-      <Section title="티켓베이" highlight="이용 후기" showMore={true}>
-        <div ref={scrollRef} className={styles.container}>
-          {USER_REVIEW_DATA.map((item) => (
-            <UserReview key={item.id} {...item} />
-          ))}
-        </div>
-      </Section>
-    </div>
+    <Section title="티켓베이" highlight="이용 후기" showMore={true}>
+      <div ref={scrollRef} className={styles.container}>
+        {USER_REVIEW_DATA.map((item) => (
+          <UserReview key={item.id} {...item} />
+        ))}
+      </div>
+    </Section>
   );
 };
 

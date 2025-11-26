@@ -10,13 +10,14 @@ export const container = style({
   alignItems: "center",
   justifyContent: "space-between",
   width: "100%",
-  minWidth: "var(--min-width)",
-  maxWidth: "var(--max-width)",
   height: "4.4rem",
-  padding: "0 1.5rem",
+  
 });
 
 export const logo = style({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-start",
   color: themeVars.color.grayscale9,
 });
 
@@ -30,12 +31,9 @@ export const iconButton = style({
   alignItems: "center",
   width: "4.8rem",
   height: "4.8rem",
+  padding: "1rem",
+  gap : "1rem",
   backgroundColor: "transparent",
   color: themeVars.color.grayscale9,
-  cursor: "pointer",
-  selectors: {
-    "&:active": {
-      opacity: 0.7,
-    },
-  },
+  cursor: "pointer"
 });

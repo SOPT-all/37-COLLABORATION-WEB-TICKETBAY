@@ -11,9 +11,10 @@ type RouteParams = {
 const SeatMap = () => {
   const { ticketId } = useParams<RouteParams>();
 
-  const numericId = Number(ticketId);
   const seatImageUrl =
-    ticketId && !Number.isNaN(numericId) ? getSeatMapById(numericId)?.seatImageUrl : undefined;
+    ticketId && !Number.isNaN(Number(ticketId))
+      ? getSeatMapById(Number(ticketId))?.seatImageUrl
+      : undefined;
 
   const imageSrc = seatImageUrl ?? "/img_seatview_118.webp";
 

@@ -59,6 +59,13 @@ export const arrowOpen = style({
 export const content = style({
   boxSizing: "border-box",
   backgroundColor: themeVars.color.grayscale8,
+  overflow: "hidden",
+  maxHeight: "0",
+  transition: "max-height 0.25s ease",
+});
+
+export const contentOpen = style({
+  maxHeight: "500px",
 });
 
 // 좌석 배치도 아코디언 콘텐츠

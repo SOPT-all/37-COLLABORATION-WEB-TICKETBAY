@@ -32,7 +32,9 @@ const Accordion = ({ title, children }: Props) => {
         </span>
       </button>
 
-      {isOpen && <div className={styles.content}>{children}</div>}
+      {isOpen && (
+        <div className={`${styles.content} ${isOpen ? styles.contentOpen : ""}`}>{children}</div>
+      )}
     </section>
   );
 };

@@ -1,6 +1,5 @@
 import { style } from "@vanilla-extract/css";
 
-import { color } from "@shared/styles/token/color.css";
 import { fontStyles } from "@shared/styles/token/font-style.css";
 import { themeVars } from "@shared/styles/theme.css";
 
@@ -43,35 +42,22 @@ export const gradient = style({
 export const noticeBanner = style({
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
   height: "3.5rem",
   gap: "1rem",
   width: "100%",
-  minWidth: "var(--min-width)",
-  maxWidth: "var(--max-width)",
   padding: "0 1.5rem",
   marginTop: "0.9rem",
-  backgroundColor: color.grayscale8,
+  backgroundColor: themeVars.color.grayscale8,
+  borderBottom: `1px solid ${themeVars.color.grayscale6}`,
 });
 
 export const soundIcon = style({
-  color: color.primary,
+  color: themeVars.color.primary,
 });
 
 export const noticeText = style({
   ...fontStyles.caption1_medium,
-  color: color.grayscale1,
+  color: themeVars.color.grayscale1,
   flex: 1,
-});
-
-export const firstBanner = style({
-  width: "100%",
-  minWidth: "var(--min-width)",
-  maxWidth: "var(--max-width)",
-  padding: "0 1.5rem",
-  marginTop: "1.6rem",
-  height: "auto",
-  borderRadius: "0.8rem",
-  objectFit: "cover",
 });
 

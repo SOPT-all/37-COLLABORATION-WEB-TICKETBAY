@@ -6,6 +6,7 @@ import { themeVars } from "@shared/styles/theme.css";
 export const section = style({
   display: "grid",
   gap: "0.6rem",
+  marginTop: "2.4rem",
 });
 
 export const container = recipe({

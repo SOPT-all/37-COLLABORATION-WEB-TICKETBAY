@@ -5,6 +5,7 @@ import { themeVars } from "@shared/styles/theme.css";
 export const section = style({
   display: "flex",
   justifyContent: "space-between",
+  marginTop: "3rem",
 });
 
 export const logoContainer = style({

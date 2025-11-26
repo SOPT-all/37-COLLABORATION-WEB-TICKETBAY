@@ -6,7 +6,7 @@ export const container = style({
   display: "flex",
   flexDirection: "column",
   gap: "1.2rem",
-  padding: "1.9rem 1.4rem 0 1.4rem",
+  marginTop: "1.9rem",
   color: themeVars.color.grayscale1,
 });
 export const telephone = style({

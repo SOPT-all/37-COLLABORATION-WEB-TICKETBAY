@@ -28,6 +28,7 @@ const GiftCard = () => {
             <Tab.Panel value={TAB[0].id}>
               {GIFT_CARD_LIST.map((item) => (
                 <GiftCardItem
+                  key={item.id}
                   imageUrl={item.imageUrl}
                   brandName={item.brand}
                   productTitle={item.title}

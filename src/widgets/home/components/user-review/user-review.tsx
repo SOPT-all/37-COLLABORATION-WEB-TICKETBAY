@@ -12,7 +12,7 @@ interface Props {
 
 const UserReview = ({ category, matchTitle, userName, date, content }: Props) => {
   return (
-    <div className={styles.container}>
+    <button type="button" className={styles.container}>
       <p className={styles.category}>{category}</p>
       <div>
         <p className={styles.matchTitle}>{matchTitle}</p>
@@ -23,7 +23,7 @@ const UserReview = ({ category, matchTitle, userName, date, content }: Props) =>
         </div>
       </div>
       <p className={styles.content}>{content}</p>
-    </div>
+    </button>
   );
 };
 

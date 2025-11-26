@@ -1,5 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
+import { color } from "@shared/styles/token/color.css";
+import { fontStyles } from "@shared/styles/token/font-style.css";
 import { themeVars } from "@shared/styles/theme.css";
 
 const BACKGROUND_IMAGE_HEIGHT = "17.9rem";
@@ -36,5 +38,29 @@ export const gradient = style({
   height: GRADIENT_HEIGHT,
   zIndex: themeVars.zIndex.background,
   background: "var(--color_black_gradient, linear-gradient(0deg, #F8F9FA 0%, #000 100%))",
+});
+
+export const noticeBanner = style({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "3.5rem",
+  gap: "1rem",
+  width: "100%",
+  minWidth: "var(--min-width)",
+  maxWidth: "var(--max-width)",
+  padding: "0 1.5rem",
+  marginTop: "0.9rem",
+  backgroundColor: color.grayscale8,
+});
+
+export const soundIcon = style({
+  color: color.primary,
+});
+
+export const noticeText = style({
+  ...fontStyles.caption1_medium,
+  color: color.grayscale1,
+  flex: 1,
 });
 

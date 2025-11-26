@@ -24,8 +24,6 @@ export const headerLabel = style({
 
 export const headerIconButton = style({
   display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
 });
 
 // 거래 방식 선택 Row 전체 (좌측 라디오 + 우측 안내 버튼)

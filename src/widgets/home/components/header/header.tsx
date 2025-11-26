@@ -5,9 +5,7 @@ import * as styles from "./header.css";
 const Header = () => {
   return (
     <header className={styles.container}>
-      <div className={styles.logo}>
-        <TicketbayTextLogoIcon width={106} height={12} />
-      </div>
+      <TicketbayTextLogoIcon className={styles.logo} width={106} height={12} />
       <div className={styles.rightSection}>
         <button type="button" className={styles.iconButton}>
           <MessageAlarmIcon width={27} height={27} />
@@ -21,4 +19,3 @@ const Header = () => {
 };
 
 export default Header;
-

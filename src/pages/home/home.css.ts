@@ -12,8 +12,10 @@ export const container = style({
   position: "relative",
   minWidth: "var(--min-width)",
   maxWidth: "var(--max-width)",
-  minHeight: CONTAINER_MIN_HEIGHT,
+  minHeight: CONTAINER_MIN_HEIGHT, 
   overflow: "hidden",
+  padding: "0 1.5rem",
+  backgroundColor: themeVars.color.grayscale9,
 });
 
 export const backgroundImage = style({
@@ -32,10 +34,11 @@ export const backgroundImage = style({
 export const gradient = style({
   position: "absolute",
   top: `calc(${BACKGROUND_IMAGE_HEIGHT} - ${GRADIENT_OVERLAP})`,
+  left: 0,
   width: "100%",
   height: GRADIENT_HEIGHT,
   zIndex: themeVars.zIndex.background,
-  background: "var(--color_black_gradient, linear-gradient(0deg, #F8F9FA 0%, #000 100%))",
+  background: "linear-gradient(180deg, #000 0%, #F8F9FA 100%)",
 });
 
 export const noticeBanner = style({

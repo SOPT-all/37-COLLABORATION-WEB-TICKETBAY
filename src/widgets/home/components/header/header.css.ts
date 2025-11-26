@@ -18,6 +18,9 @@ export const container = style({
 });
 
 export const logo = style({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-start",
   color: themeVars.color.grayscale9,
 });
 
@@ -32,12 +35,9 @@ export const iconButton = style({
   justifyContent: "center",
   width: "4.8rem",
   height: "4.8rem",
+  padding: "1rem",
+  gap : "1rem",
   backgroundColor: "transparent",
   color: themeVars.color.grayscale9,
-  cursor: "pointer",
-  selectors: {
-    "&:active": {
-      opacity: 0.7,
-    },
-  },
+  cursor: "pointer"
 });

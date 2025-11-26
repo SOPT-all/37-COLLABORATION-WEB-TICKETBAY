@@ -10,6 +10,7 @@ export const container = recipe({
     alignItems: "center",
     padding: "1rem 1rem 1rem 0.8rem",
     gap: "1.4rem",
+    borderBottom: `1px solid ${themeVars.color.grayscale6}`,
   },
   variants: {
     isTight: {

@@ -1,21 +1,24 @@
 import { style } from "@vanilla-extract/css";
 
-import { fontStyles } from "@shared/styles/token/font-style.css";
 import { themeVars } from "@shared/styles/theme.css";
+import { fontStyles } from "@shared/styles/token/font-style.css";
 
 const BACKGROUND_IMAGE_HEIGHT = "17.9rem";
 const GRADIENT_HEIGHT = "7rem";
 const GRADIENT_OVERLAP = "0.2rem";
 const CONTAINER_MIN_HEIGHT = "24.9rem";
 
+export const home = style({
+  backgroundColor: themeVars.color.grayscale8,
+});
+
 export const container = style({
   position: "relative",
   minWidth: "var(--min-width)",
   maxWidth: "var(--max-width)",
-  minHeight: CONTAINER_MIN_HEIGHT, 
+  minHeight: CONTAINER_MIN_HEIGHT,
   overflow: "hidden",
   padding: "0 1.5rem",
-  backgroundColor: themeVars.color.grayscale9,
 });
 
 export const backgroundImage = style({
@@ -62,3 +65,21 @@ export const noticeText = style({
   color: themeVars.color.grayscale1,
 });
 
+export const content = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "3rem",
+  padding: "0 1.5rem",
+  marginTop: "1.6rem",
+  backgroundColor: themeVars.color.grayscale9,
+});
+
+export const footer = style({
+  paddingTop: "2.4rem",
+  marginBottom: "7.9rem",
+  backgroundColor: themeVars.color.grayscale9,
+});
+
+export const inner = style({
+  padding: "0 1.5rem",
+});

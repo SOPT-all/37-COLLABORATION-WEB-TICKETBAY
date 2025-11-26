@@ -4,8 +4,7 @@ import { recipe } from "@vanilla-extract/recipes";
 import { themeVars } from "@shared/styles/theme.css";
 
 export const section = style({
-  display: "flex",
-  flexDirection: "column",
+  display: "grid",
   gap: "0.6rem",
 });
 

@@ -7,25 +7,21 @@ import * as styles from "./ticket-summary.css";
 export const TicketSummary = () => {
   const data = MOCK_TICKET_SUMMARY;
 
+  const infoList = [
+    { label: "티켓 보유 여부", value: data.hasTicket },
+    { label: "한 매 가격", value: data.pricePerTicket },
+    { label: "수량", value: data.quantity },
+  ];
+
   return (
     <section className={styles.container} aria-label="티켓 가격 요약">
-      {/* 티켓 보유 여부 */}
-      <div className={styles.row}>
-        <span className={styles.label}>티켓 보유 여부</span>
-        <span className={styles.value}>{data.hasTicket}</span>
-      </div>
-
-      {/* 한 매 가격 */}
-      <div className={styles.row}>
-        <span className={styles.label}>한 매 가격</span>
-        <span className={styles.value}>{data.pricePerTicket}</span>
-      </div>
-
-      {/* 수량 */}
-      <div className={styles.row}>
-        <span className={styles.label}>수량</span>
-        <span className={styles.value}>{data.quantity}</span>
-      </div>
+      {/* 티켓 보유 여부, 한 매 가격, 수량 */}
+      {infoList.map(({ label, value }) => (
+        <div key={label} className={styles.row}>
+          <span className={styles.label}>{label}</span>
+          <span className={styles.value}>{value}</span>
+        </div>
+      ))}
 
       {/* 총 가격 */}
       <div className={styles.row}>

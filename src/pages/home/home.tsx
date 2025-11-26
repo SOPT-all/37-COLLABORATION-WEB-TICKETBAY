@@ -1,6 +1,5 @@
 import Header from "@widgets/home/components/header/header";
 import Search from "@widgets/home/components/search/search";
-import RecentTicket from "@widgets/home/components/recent-ticket/recent-ticket";
 
 import * as styles from "./home.css";
 

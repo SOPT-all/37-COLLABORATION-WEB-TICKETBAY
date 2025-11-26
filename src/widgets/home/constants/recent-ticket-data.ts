@@ -18,7 +18,7 @@ export const RECENT_TICKET_MOCK_DATA: RecentTicket[] = [
   {
     id: 3,
     title: "한국시리즈 6차전 [서울]",
-    date: "2025.11.01 18:30",
+    date: "2025.11.04 18:30",
   },
 ];
 

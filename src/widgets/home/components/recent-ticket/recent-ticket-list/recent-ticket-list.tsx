@@ -1,10 +1,7 @@
 import { useRef } from "react";
-
 import RecentTicketCard from "@widgets/home/components/recent-ticket/recent-ticket-card/recent-ticket-card";
 import { useHorizontalScroll } from "@widgets/select-ticket/hooks/use-horizontal-scroll";
-
 import { RECENT_TICKET_MOCK_DATA } from "@widgets/home/constants/recent-ticket-data";
-
 import * as styles from "./recent-ticket-list.css";
 
 const RecentTicketList = () => {

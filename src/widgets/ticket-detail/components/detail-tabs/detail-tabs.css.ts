@@ -12,10 +12,6 @@ export const container = style({
   backgroundColor: themeVars.color.grayscale9,
 });
 
-export const tabListWrapper = style({
-  borderBottom: `0.1rem solid ${themeVars.color.grayscale6}`,
-});
-
 export const content = style({
   padding: "2rem 1.6rem",
   height: "18.3rem",

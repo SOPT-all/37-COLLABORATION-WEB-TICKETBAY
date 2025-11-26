@@ -25,14 +25,6 @@ function Home() {
       <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
       <Search />
     </div>
-    <>
-      <div className={styles.container}>
-        <div className={styles.backgroundImage} />
-        <div className={styles.gradient} />
-        <Header />
-        <Search />
-      </div>
-    </>
   );
 }
 

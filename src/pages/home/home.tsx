@@ -1,5 +1,6 @@
 import Header from "@widgets/home/components/header/header";
 import Search from "@widgets/home/components/search/search";
+import Category from "@widgets/home/components/category/category";
 
 import * as styles from "./home.css";
 
@@ -10,6 +11,7 @@ function Home() {
       <div className={styles.gradient} />
       <Header />
       <Search />
+      <Category />
     </div>
   );
 }

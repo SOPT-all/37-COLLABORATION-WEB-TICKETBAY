@@ -38,3 +38,17 @@ export const gradient = style({
   background: "var(--color_black_gradient, linear-gradient(0deg, #F8F9FA 0%, #000 100%))",
 });
 
+export const content = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "3rem",
+  padding: "0 1.5rem",
+});
+
+export const footer = style({
+  margin: "2.4rem 0 7.9rem 0",
+});
+
+export const inner = style({
+  padding: "0 1.5rem",
+});

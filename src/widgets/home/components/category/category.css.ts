@@ -3,14 +3,16 @@ import { themeVars } from "@shared/styles/theme.css";
 
 export const container = style({
   display: "flex",
+  position: "relative",
   height: "13.3rem",
   padding: "1.2rem 1rem",
   justifyContent: "center",
   alignItems: "center",
-  margin: "3rem 1.5rem",
+  margin: "1.9rem 1.5rem 0",
   background: themeVars.color.grayscale9,
   boxShadow: themeVars.effect.effect3,
   borderRadius: "16px",
+  zIndex: themeVars.zIndex.content,
 });
 
 export const gridContainer = style({

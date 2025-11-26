@@ -45,3 +45,4 @@ export const useHorizontalScroll = (scrollAreaRef: RefObject<HTMLDivElement | nu
     };
   }, [scrollAreaRef]);
 };
+

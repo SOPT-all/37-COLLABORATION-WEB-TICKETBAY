@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
+import { fontStyles } from "@shared/styles/token/font-style.css";
 import { themeVars } from "@shared/styles/theme.css";
 
 const BACKGROUND_IMAGE_HEIGHT = "17.9rem";
@@ -9,11 +10,12 @@ const CONTAINER_MIN_HEIGHT = "24.9rem";
 
 export const container = style({
   position: "relative",
-  width: "100%",
   minWidth: "var(--min-width)",
   maxWidth: "var(--max-width)",
-  minHeight: CONTAINER_MIN_HEIGHT,
+  minHeight: CONTAINER_MIN_HEIGHT, 
   overflow: "hidden",
+  padding: "0 1.5rem",
+  backgroundColor: themeVars.color.grayscale9,
 });
 
 export const backgroundImage = style({
@@ -32,10 +34,32 @@ export const backgroundImage = style({
 export const gradient = style({
   position: "absolute",
   top: `calc(${BACKGROUND_IMAGE_HEIGHT} - ${GRADIENT_OVERLAP})`,
+  left: 0,
   width: "100%",
   height: GRADIENT_HEIGHT,
   zIndex: themeVars.zIndex.background,
-  background: "var(--color_black_gradient, linear-gradient(0deg, #F8F9FA 0%, #000 100%))",
+  background: "linear-gradient(180deg, #000 0%, #F8F9FA 100%)",
+});
+
+export const noticeBanner = style({
+  display: "flex",
+  alignItems: "center",
+  height: "3.5rem",
+  gap: "1rem",
+  width: "100%",
+  padding: "0 1.5rem",
+  marginTop: "0.9rem",
+  backgroundColor: themeVars.color.grayscale8,
+  borderBottom: `1px solid ${themeVars.color.grayscale6}`,
+});
+
+export const soundIcon = style({
+  color: themeVars.color.primary,
+});
+
+export const noticeText = style({
+  ...fontStyles.caption1_medium,
+  color: themeVars.color.grayscale1,
 });
 
 export const content = style({

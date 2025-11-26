@@ -19,7 +19,7 @@ const PaymentMethodSelect = (): ReactElement => {
         </h2>
 
         <button type="button" aria-label="거래 방식 안내" className={styles.headerIconButton}>
-          <HelpCircleIcon width={32} height={32} />
+          <HelpCircleIcon />
         </button>
       </div>
 

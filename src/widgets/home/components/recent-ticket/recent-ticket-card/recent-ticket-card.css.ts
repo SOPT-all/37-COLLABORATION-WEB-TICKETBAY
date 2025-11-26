@@ -20,13 +20,13 @@ export const cardInner = style({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+  width: "100%",
 });
 
 export const content = style({
   display: "flex",
   flexDirection: "column",
   gap: "0.1rem",
-  flex: 1,
 });
 
 export const title = style({
@@ -40,7 +40,6 @@ export const date = style({
 });
 
 export const icon = style({
-  flexShrink: 0,
   color: themeVars.color.grayscale4,
 });
 

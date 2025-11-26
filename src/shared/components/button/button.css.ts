@@ -38,7 +38,7 @@ export const button = recipe({
         themeVars.fontStyles.body2_medium,
         {
           minHeight: "4.4rem",
-          padding: "1.2rem 8.3rem",
+          padding: "1.2rem",
           borderRadius: "8px",
         },
       ],

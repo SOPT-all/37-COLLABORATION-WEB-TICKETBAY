@@ -7,9 +7,7 @@ export const container = style({
   display: "flex",
   flexDirection: "column",
   alignItems: "stretch",
-  paddingTop: "2rem",
-  paddingBottom: "2rem",
-  paddingInline: "1.6rem",
+  padding: "2rem 1.6rem",
   backgroundColor: themeVars.color.grayscale9,
 });
 

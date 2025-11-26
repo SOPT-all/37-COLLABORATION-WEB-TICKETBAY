@@ -5,7 +5,7 @@ export const container = style({
   display: "flex",
   gap: "1.2rem",
   overflowX: "auto",
-  marginRight: "-1.4rem",
-  paddingRight: "1.4rem",
+  marginRight: "-1.5em",
+  paddingRight: "1.5rem",
   WebkitOverflowScrolling: "touch",
 });

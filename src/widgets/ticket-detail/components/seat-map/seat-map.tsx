@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 
-import { getSeatMapById } from "@widgets/ticket-detail/constants/seat-map.mock";
+import { SEAT_MAP_MOCK_LIST } from "@widgets/ticket-detail/constants/seat-map.mock";
 
 import * as styles from "./seat-map.css";
 
@@ -11,9 +11,11 @@ type RouteParams = {
 const SeatMap = () => {
   const { ticketId } = useParams<RouteParams>();
 
+  const numericId = Number(ticketId);
+
   const seatImageUrl =
-    ticketId && !Number.isNaN(Number(ticketId))
-      ? getSeatMapById(Number(ticketId))?.seatImageUrl
+    ticketId && !Number.isNaN(numericId)
+      ? SEAT_MAP_MOCK_LIST.find((item) => item.id === numericId)?.seatImageUrl
       : undefined;
 
   const imageSrc = seatImageUrl ?? "/img_seatview_118.webp";

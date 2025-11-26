@@ -31,4 +31,5 @@ export const button = style({
   padding: "0.7rem 1rem",
   background: themeVars.color.grayscale9,
   border: `1px solid ${themeVars.color.grayscale7}`,
+  color: themeVars.color.grayscale3,
 });

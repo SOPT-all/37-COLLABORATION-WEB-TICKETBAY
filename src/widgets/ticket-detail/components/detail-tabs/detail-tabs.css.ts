@@ -17,7 +17,7 @@ export const tabListWrapper = style({
 });
 
 export const content = style({
-  padding: "1.6rem 2rem 2rem",
+  padding: "2rem 1.6rem",
   height: "18.3rem",
 });
 

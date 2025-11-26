@@ -60,8 +60,6 @@ export const methodGuideButton = style({
 export const methodGuideText = style({
   ...themeVars.fontStyles.body3_medium,
   color: themeVars.color.primary,
-  letterSpacing: "-0.12px",
-  textAlign: "right",
 });
 
 export const methodGuideIcon = style({

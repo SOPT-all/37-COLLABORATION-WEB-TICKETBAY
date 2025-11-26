@@ -14,6 +14,10 @@ export const container = style({
 
   padding: "1.6rem",
   gap: "1.1rem",
+
+  scrollSnapAlign: "start",
+  flexShrink: 0,
+  textAlign: "start",
 });
 
 export const category = style({

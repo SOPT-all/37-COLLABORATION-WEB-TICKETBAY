@@ -26,8 +26,6 @@ export const headerIconButton = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  width: "2rem",
-  height: "2rem",
 });
 
 // 거래 방식 선택 Row 전체 (좌측 라디오 + 우측 안내 버튼)
@@ -65,8 +63,6 @@ export const methodGuideIcon = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  width: "2.4rem",
-  height: "2.4rem",
 });
 
 // 라디오 버튼 스타일 (바깥 원 + 안쪽 원)

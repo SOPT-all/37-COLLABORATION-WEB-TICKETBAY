@@ -19,7 +19,7 @@ const PaymentMethodSelect = (): ReactElement => {
         </h2>
 
         <button type="button" aria-label="거래 방식 안내" className={styles.headerIconButton}>
-          <HelpCircleIcon />
+          <HelpCircleIcon width={32} height={32} />
         </button>
       </div>
 
@@ -43,8 +43,9 @@ const PaymentMethodSelect = (): ReactElement => {
           className={styles.methodGuideButton}
         >
           <span className={styles.methodGuideText}>{MOCK_PAYMENT_METHOD.guideText}</span>
+
           <span className={styles.methodGuideIcon} aria-hidden="true">
-            <ChevronSmallRightIcon />
+            <ChevronSmallRightIcon width={24} height={24} />
           </span>
         </button>
       </div>

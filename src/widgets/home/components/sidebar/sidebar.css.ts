@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { keyframes } from "@vanilla-extract/css";
 import { color } from "@shared/styles/token/color.css";
-import { themeVars } from "@shared/styles/theme.css";
+import { fontStyles } from "@shared/styles/token/font-style.css";
 import { zIndex } from "@shared/styles/token/z-index.css";
 
 const slideIn = keyframes({
@@ -96,7 +96,7 @@ export const loginMenuItem = style({
   border: "none",
   cursor: "pointer",
   width: "100%",
-  ...themeVars.fontStyles.body1_medium,
+  ...fontStyles.body1_medium,
   color: color.grayscale1,
 });
 
@@ -108,7 +108,7 @@ export const menuItem = style({
   border: "none",
   cursor: "pointer",
   width: "100%",
-  ...themeVars.fontStyles.body1_medium,
+  ...fontStyles.body1_medium,
   color: color.grayscale1,
 });
 

@@ -13,7 +13,6 @@ function Home() {
         <Header />
         <Search />
       </div>
-      <RecentTicket />
     </>
   );
 }

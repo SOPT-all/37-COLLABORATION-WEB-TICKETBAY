@@ -41,7 +41,7 @@ export const methodRow = style({
 export const methodInfo = style({
   display: "flex",
   alignItems: "center",
-  gap: "0.8rem",
+  gap: "0.2rem",
 });
 
 export const methodLabel = style({
@@ -70,9 +70,8 @@ export const methodGuideIcon = style({
 // 라디오 버튼 스타일 (바깥 원 + 안쪽 원)
 // 라디오 버튼 전체 감싸는 wrapper
 export const radioWrapper = style({
-  width: "1.6rem",
-  height: "1.6rem",
-  boxSizing: "border-box",
+  width: "2.4rem",
+  height: "2.4rem",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

@@ -24,7 +24,6 @@ export const logo = style({
 export const rightSection = style({
   display: "flex",
   alignItems: "center",
-  
 });
 
 export const iconButton = style({
@@ -38,5 +37,3 @@ export const iconButton = style({
   color: themeVars.color.grayscale9,
   cursor: "pointer"
 });
-
-

@@ -4,7 +4,8 @@ import { OptionIcon } from "@assets/icons";
 
 import Dropdown from "@widgets/select-ticket/components/dropdown/dropdown";
 import { DROPDOWN_CONFIGS } from "@widgets/select-ticket/constants/dropdown-mock-data";
-import { useHorizontalScroll } from "@widgets/select-ticket/hooks/use-horizontal-scroll";
+
+import { useHorizontalScroll } from "@shared/hooks/use-horizontal-scroll";
 
 import * as styles from "./dropdown-list.css";
 

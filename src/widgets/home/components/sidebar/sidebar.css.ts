@@ -26,7 +26,7 @@ export const sidebarDim = style({
   position: "fixed",
   top: 0,
   left: 0,
-  right: "75vw",
+  right: "70vw",
   bottom: 0,
   backgroundColor: "rgba(0, 0, 0, 0.4)",
   zIndex: zIndex.sidebar,
@@ -34,7 +34,7 @@ export const sidebarDim = style({
   "@media": {
     "(min-width: 430px)": {
       left: "calc((100vw - 430px) / 2)",
-      right: "calc((100vw - 430px) / 2 + 28rem)",
+      right: "calc((100vw - 430px) / 2 + 26.4rem)",
     },
   },
 });
@@ -44,7 +44,7 @@ export const sidebarContainer = style({
   top: 0,
   right: 0,
   bottom: 0,
-  width: "75vw",
+  width: "70vw",
   minWidth: "26.4rem",
   backgroundColor: color.grayscale8,
   zIndex: zIndex.sidebar,
@@ -57,8 +57,8 @@ export const sidebarContainer = style({
   "@media": {
     "(min-width: 430px)": {
       right: "calc((100vw - 430px) / 2)",
-      maxWidth: "28rem",
-      width: "28rem",
+      maxWidth: "26.4rem",
+      width: "26.4rem",
     },
   },
 });
@@ -85,9 +85,6 @@ export const sidebarItemContainer = style({
   display: "flex",
   flexDirection: "column",
   alignItems: "flex-start",
-  alignSelf: "stretch",
- 
-
   backgroundColor: color.grayscale9,
 });
 

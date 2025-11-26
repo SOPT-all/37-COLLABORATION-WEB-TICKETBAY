@@ -12,7 +12,6 @@ export const section = style({
 export const container = recipe({
   base: {
     display: "grid",
-    gridAutoFlow: "row dense",
     gap: "0.6rem",
   },
   variants: {

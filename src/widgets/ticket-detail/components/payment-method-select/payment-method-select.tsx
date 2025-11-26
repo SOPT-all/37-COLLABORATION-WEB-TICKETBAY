@@ -9,7 +9,7 @@ const MOCK_PAYMENT_METHOD = {
   guideText: "PIN(E-ticket) 거래란?",
 };
 
-export default function PaymentMethodSelect(): ReactElement {
+const PaymentMethodSelect = (): ReactElement => {
   return (
     <section className={styles.container} aria-labelledby="payment-method-select-heading">
       {/* HEADER */}
@@ -50,4 +50,6 @@ export default function PaymentMethodSelect(): ReactElement {
       </div>
     </section>
   );
-}
+};
+
+export default PaymentMethodSelect;

@@ -10,5 +10,4 @@ export const zIndex = {
   dropdown: "4000",
   overlay: "5000",
   flotingbtn: "6000",
-  sidebar: "7000"
 } as const;

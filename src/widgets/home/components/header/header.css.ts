@@ -17,15 +17,12 @@ export const container = style({
 });
 
 export const logo = style({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-start",
+  color: themeVars.color.grayscale9,
 });
 
 export const rightSection = style({
   display: "flex",
   alignItems: "center",
-  
 });
 
 export const iconButton = style({
@@ -42,5 +39,3 @@ export const iconButton = style({
     },
   },
 });
-
-

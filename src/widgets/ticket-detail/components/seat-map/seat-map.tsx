@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 
 import { getSeatMapById } from "@widgets/ticket-detail/constants/seat-map.mock";
 

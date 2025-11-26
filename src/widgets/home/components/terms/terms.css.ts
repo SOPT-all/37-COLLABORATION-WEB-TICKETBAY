@@ -27,7 +27,7 @@ export const container = recipe({
 });
 
 export const button = style({
-  ...themeVars.fontStyles.caption1_regular
+  ...themeVars.fontStyles.caption1_regular,
   width: "100%",
   padding: "0.7rem 1rem",
   background: themeVars.color.grayscale9,

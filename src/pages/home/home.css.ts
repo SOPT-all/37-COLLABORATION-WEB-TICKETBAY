@@ -10,7 +10,6 @@ const CONTAINER_MIN_HEIGHT = "24.9rem";
 
 export const container = style({
   position: "relative",
-  width: "100%",
   minWidth: "var(--min-width)",
   maxWidth: "var(--max-width)",
   minHeight: CONTAINER_MIN_HEIGHT,

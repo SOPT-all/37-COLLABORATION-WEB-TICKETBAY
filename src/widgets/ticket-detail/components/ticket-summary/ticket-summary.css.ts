@@ -21,6 +21,9 @@ export const row = style({
     "&:nth-of-type(-n+3)": {
       borderBottom: `1px solid ${themeVars.color.grayscale7}`,
     },
+    "&:nth-of-type(4)": {
+      paddingBottom: 0,
+    },
   },
 });
 
@@ -50,6 +53,7 @@ export const pointRow = style({
   justifyContent: "flex-end",
   alignItems: "center",
   gap: "0.2rem",
+  marginTop: "0.8rem",
 });
 
 // "팬파워 345FP 적립" 텍스트

@@ -1,5 +1,5 @@
-import Section from "@widgets/home/components/section/section";
 import RecentTicketList from "@widgets/home/components/recent-ticket/recent-ticket-list/recent-ticket-list";
+import Section from "@widgets/home/components/section/section";
 
 import * as styles from "./recent-ticket.css";
 
@@ -14,4 +14,3 @@ const RecentTicket = () => {
 };
 
 export default RecentTicket;
-

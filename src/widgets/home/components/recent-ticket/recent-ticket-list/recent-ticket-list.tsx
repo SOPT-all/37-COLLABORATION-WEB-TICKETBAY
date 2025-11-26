@@ -1,8 +1,10 @@
 import { useRef } from "react";
-import { useNavigate } from "react-router";
 import RecentTicketCard from "@entities/history/ui/recent-ticket-card/recent-ticket-card";
-import { useHorizontalScroll } from "@shared/hooks/use-horizontal-scroll";
+import { useNavigate } from "react-router";
+
 import { RECENT_TICKET_MOCK_DATA } from "@widgets/home/constants/recent-ticket-data";
+
+import { useHorizontalScroll } from "@shared/hooks/use-horizontal-scroll";
 import { ROUTE_PATH } from "@shared/router/path";
 
 import * as styles from "./recent-ticket-list.css";
@@ -30,4 +32,3 @@ const RecentTicketList = () => {
 };
 
 export default RecentTicketList;
-

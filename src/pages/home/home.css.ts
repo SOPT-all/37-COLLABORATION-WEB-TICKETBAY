@@ -8,6 +8,10 @@ const GRADIENT_HEIGHT = "7rem";
 const GRADIENT_OVERLAP = "0.2rem";
 const CONTAINER_MIN_HEIGHT = "24.9rem";
 
+export const home = style({
+  backgroundColor: themeVars.color.grayscale8,
+});
+
 export const container = style({
   position: "relative",
   minWidth: "var(--min-width)",
@@ -15,7 +19,6 @@ export const container = style({
   minHeight: CONTAINER_MIN_HEIGHT,
   overflow: "hidden",
   padding: "0 1.5rem",
-  backgroundColor: themeVars.color.grayscale9,
 });
 
 export const backgroundImage = style({
@@ -47,6 +50,7 @@ export const noticeBanner = style({
   height: "3.5rem",
   gap: "1rem",
   width: "100%",
+  padding: "0 1.5rem",
   marginTop: "0.9rem",
   backgroundColor: themeVars.color.grayscale8,
   borderBottom: `1px solid ${themeVars.color.grayscale6}`,
@@ -66,10 +70,14 @@ export const content = style({
   flexDirection: "column",
   gap: "3rem",
   padding: "0 1.5rem",
+  marginTop: "1.6rem",
+  backgroundColor: themeVars.color.grayscale9,
 });
 
 export const footer = style({
-  margin: "2.4rem 0 7.9rem 0",
+  paddingTop: "2.4rem",
+  marginBottom: "7.9rem",
+  backgroundColor: themeVars.color.grayscale9,
 });
 
 export const inner = style({

@@ -57,6 +57,5 @@ export const soundIcon = style({
 export const noticeText = style({
   ...fontStyles.caption1_medium,
   color: themeVars.color.grayscale1,
-  flex: 1,
 });
 

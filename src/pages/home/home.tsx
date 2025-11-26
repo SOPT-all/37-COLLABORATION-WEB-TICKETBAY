@@ -36,12 +36,12 @@ function Home() {
         <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
         <Search />
         <Category />
-        <div className={styles.noticeBanner}>
-          <SoundIcon width={24} height={24} className={styles.soundIcon} />
-          <p className={styles.noticeText}>
-            [공지] 티켓 매크로 방지를 위한 티켓 매수 제한 정책 시행 안내
-          </p>
-        </div>
+      </div>
+      <div className={styles.noticeBanner}>
+        <SoundIcon width={24} height={24} className={styles.soundIcon} />
+        <p className={styles.noticeText}>
+          [공지] 티켓 매크로 방지를 위한 티켓 매수 제한 정책 시행 안내
+        </p>
       </div>
 
       <footer className={styles.footer}>

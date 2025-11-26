@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
-import { fontStyles } from "@shared/styles/token/font-style.css";
 import { themeVars } from "@shared/styles/theme.css";
+import { fontStyles } from "@shared/styles/token/font-style.css";
 
 const BACKGROUND_IMAGE_HEIGHT = "17.9rem";
 const GRADIENT_HEIGHT = "7rem";
@@ -12,7 +12,7 @@ export const container = style({
   position: "relative",
   minWidth: "var(--min-width)",
   maxWidth: "var(--max-width)",
-  minHeight: CONTAINER_MIN_HEIGHT, 
+  minHeight: CONTAINER_MIN_HEIGHT,
   overflow: "hidden",
   padding: "0 1.5rem",
   backgroundColor: themeVars.color.grayscale9,
@@ -47,7 +47,6 @@ export const noticeBanner = style({
   height: "3.5rem",
   gap: "1rem",
   width: "100%",
-  padding: "0 1.5rem",
   marginTop: "0.9rem",
   backgroundColor: themeVars.color.grayscale8,
   borderBottom: `1px solid ${themeVars.color.grayscale6}`,

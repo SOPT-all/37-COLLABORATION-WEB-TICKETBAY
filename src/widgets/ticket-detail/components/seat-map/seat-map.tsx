@@ -1,26 +1,13 @@
-import { useParams } from "react-router";
-
-import { SEAT_MAP_MOCK_LIST } from "@widgets/ticket-detail/constants/seat-map.mock";
-
 import * as styles from "./seat-map.css";
 
-type RouteParams = {
-  ticketId?: string;
+type SeatMapProps = {
+  imageSrc?: string;
 };
 
-const SeatMap = () => {
-  const { ticketId } = useParams<RouteParams>();
+const SeatMap = ({ imageSrc }: SeatMapProps) => {
+  const fallbackSrc = imageSrc ?? "/img_seatview_118.webp";
 
-  const numericId = Number(ticketId);
-
-  const seatImageUrl =
-    ticketId && !Number.isNaN(numericId)
-      ? SEAT_MAP_MOCK_LIST.find((item) => item.id === numericId)?.seatImageUrl
-      : undefined;
-
-  const imageSrc = seatImageUrl ?? "/img_seatview_118.webp";
-
-  return <img src={imageSrc} alt="좌석 배치도" className={styles.seatImage} />;
+  return <img src={fallbackSrc} alt="좌석 배치도" className={styles.seatImage} />;
 };
 
 export default SeatMap;

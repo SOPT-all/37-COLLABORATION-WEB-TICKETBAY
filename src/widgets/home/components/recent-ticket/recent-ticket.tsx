@@ -5,11 +5,13 @@ import * as styles from "./recent-ticket.css";
 
 const RecentTicket = () => {
   return (
-    <Section title="최근 본 " highlight="티켓" showMore={true}>
-      <div className={styles.container}>
-        <RecentTicketList />
-      </div>
-    </Section>
+    <div className={styles.wrapper}>
+      <Section title="최근 본 " highlight="티켓" showMore={true}>
+        <div className={styles.container}>
+          <RecentTicketList />
+        </div>
+      </Section>
+    </div>
   );
 };
 

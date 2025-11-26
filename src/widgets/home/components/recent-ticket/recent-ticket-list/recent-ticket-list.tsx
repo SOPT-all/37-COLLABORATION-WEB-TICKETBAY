@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router";
 import RecentTicketCard from "@entities/history/ui/recent-ticket-card/recent-ticket-card";
-import { useHorizontalScroll } from "@widgets/select-ticket/hooks/use-horizontal-scroll";
+import { useHorizontalScroll } from "../../../../select-ticket/hooks/use-horizontal-scroll";
 import { RECENT_TICKET_MOCK_DATA } from "@widgets/home/constants/recent-ticket-data";
 import { ROUTE_PATH } from "@shared/router/path";
 

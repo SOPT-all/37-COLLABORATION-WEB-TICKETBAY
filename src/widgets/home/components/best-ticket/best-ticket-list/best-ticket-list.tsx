@@ -7,13 +7,15 @@ import { ROUTE_PATH } from "@shared/router/path";
 
 import * as styles from "./best-ticket-list.css";
 
+const BEST_TICKET_PAGE_SIZE = 10;
+
 interface Props {
   page: number;
 }
 
 const BestTicketList = ({ page }: Props) => {
   const navigate = useNavigate();
-  const { data: events = [] } = useQuery(EVENT_QUERY_OPTIONS.TOP_EVENTS(page, 10));
+  const { data: events = [] } = useQuery(EVENT_QUERY_OPTIONS.TOP_EVENTS(page, BEST_TICKET_PAGE_SIZE));
 
   const handleTicketClick = (eventId?: number) => {
     if (eventId) {
@@ -24,7 +26,7 @@ const BestTicketList = ({ page }: Props) => {
   return (
     <div className={styles.container}>
       {events.map((event, index) => {
-        const rank = index + 1 + page * 10;
+        const rank = index + 1 + page * BEST_TICKET_PAGE_SIZE;
         return (
           <BestTicketItem
             key={event.id}

@@ -1,9 +1,10 @@
 import { useRef } from "react";
+import { HISTORY_QUERY_OPTIONS } from "@entities/history/queries/queries";
 import RecentTicketCard from "@entities/history/ui/recent-ticket-card/recent-ticket-card";
+import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router";
 
-import { RECENT_TICKET_MOCK_DATA } from "@widgets/home/constants/recent-ticket-data";
-
+import { EVENT_ID, USER_ID } from "@shared/constants/id";
 import { useHorizontalScroll } from "@shared/hooks/use-horizontal-scroll";
 import { ROUTE_PATH } from "@shared/router/path";
 
@@ -14,17 +15,25 @@ const RecentTicketList = () => {
   const navigate = useNavigate();
   useHorizontalScroll(scrollRef);
 
-  const handleTicketClick = (ticketId: number) => {
-    navigate(ROUTE_PATH.SELECT_TICKET.replace(":ticketId", String(ticketId)));
+  const userId = USER_ID;
+  const eventId = EVENT_ID;
+
+  const handleTicketClick = (eventId: number) => {
+    navigate(ROUTE_PATH.SELECT_TICKET.replace(":eventId", String(eventId)));
   };
+
+  const { data } = useQuery(HISTORY_QUERY_OPTIONS.RECENT_HISTORY(userId));
+
+  const histories = data ?? [];
+
   return (
     <div ref={scrollRef} className={styles.container}>
-      {RECENT_TICKET_MOCK_DATA.map((ticket) => (
+      {histories?.map((ticket) => (
         <RecentTicketCard
-          key={ticket.id}
-          title={ticket.title}
-          date={ticket.date}
-          onClick={() => handleTicketClick(ticket.id)}
+          key={ticket.eventId}
+          name={ticket.name}
+          eventDate={ticket.eventDate}
+          onClick={() => handleTicketClick(eventId)}
         />
       ))}
     </div>

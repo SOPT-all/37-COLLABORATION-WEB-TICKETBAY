@@ -5,7 +5,6 @@ import { themeVars } from "@shared/styles/theme.css";
 export const cardButton = style({
   display: "flex",
   flexDirection: "column",
-  alignItems: "flex-start",
   flexShrink: 0,
   marginTop: "0.6rem",
   width: "22.9rem",
@@ -14,6 +13,7 @@ export const cardButton = style({
   backgroundColor: themeVars.color.grayscale9,
   border: `1px solid ${themeVars.color.grayscale6}`,
   borderRadius: "8px",
+  textAlign: "start",
 });
 
 export const cardInner = style({
@@ -42,4 +42,3 @@ export const date = style({
 export const icon = style({
   color: themeVars.color.grayscale4,
 });
-

@@ -6,6 +6,6 @@ export const TICKET_QUERY_KEY = {
     eventId,
     date,
   ],
-  // @TODO: 티켓 상세 조회 쿼리키
-  //   DETAIL: (ticketId: number) => [...TICKET_QUERY_KEY.ALL, "ticket-detail", ticketId],
+  // 티켓 상세 조회 쿼리키
+  DETAIL: (ticketId: number) => [...TICKET_QUERY_KEY.ALL, "ticket-detail", ticketId],
 };

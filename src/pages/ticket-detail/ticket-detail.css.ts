@@ -16,3 +16,7 @@ export const ticketInfoOffset = style({
 export const removeGapTop = style({
   marginTop: "-0.7rem",
 });
+
+export const seatMapWrapper = style({
+  backgroundColor: themeVars.color.grayscale9,
+});

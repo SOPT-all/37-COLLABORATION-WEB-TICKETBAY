@@ -19,54 +19,33 @@ import * as styles from "./ticket-detail.css";
 const TicketDetail = () => {
   const navigate = useNavigate();
   const { ticketId } = useParams<{ ticketId: string }>();
-
   const numericTicketId = Number(ticketId);
 
-  const {
-    data: ticketDetail = null,
-    isLoading,
-    isError,
-  } = useQuery(TICKET_QUERY_OPTIONS.TICKET_DETAIL(numericTicketId));
+  const { data: ticketDetail = null } = useQuery(
+    TICKET_QUERY_OPTIONS.TICKET_DETAIL(numericTicketId),
+  );
 
   const handleNavigateBack = () => navigate(-1);
 
-  if (isLoading) {
-    return (
-      <main className={styles.pageContainer}>
-        <p>티켓 정보를 불러오는 중...</p>
-      </main>
-    );
-  }
-
-  if (isError || !ticketDetail) {
-    return (
-      <main className={styles.pageContainer}>
-        <p>티켓 정보를 불러오는 데 실패했습니다.</p>
-      </main>
-    );
-  }
-
   return (
     <>
-      {/* 상단 네비게이션 */}
       <Navigation
-        title={ticketDetail.event?.name || ""}
+        title={ticketDetail?.event?.name || ""}
         leftIcon={<ChevronBigLeftIcon width={24} height={24} />}
         rightIcon={<InfoIcon width={24} height={24} />}
         leftAction={handleNavigateBack}
       />
 
-      {/* 컨텐츠 영역 */}
       <main className={styles.pageContainer}>
         <div className={styles.ticketInfoOffset}>
-          <TicketInfo ticket={ticketDetail} />
+          {ticketDetail && <TicketInfo ticket={ticketDetail} />}
         </div>
 
         <div className={`${styles.removeGapTop} ${styles.seatMapWrapper}`}>
-          <SeatMap imageSrc={ticketDetail.seat?.seatImageUrl || ""} />
+          {ticketDetail && <SeatMap imageSrc={ticketDetail.seat?.seatImageUrl || ""} />}
         </div>
 
-        <TicketSummary ticket={ticketDetail} />
+        {ticketDetail && <TicketSummary ticket={ticketDetail} />}
 
         <SeatMapAccordion />
         <SafetyProgramAccordion />

@@ -21,14 +21,4 @@ type RawSeatResponse = components["schemas"]["SeatResponse"];
 export type EventDetail = Required<RawEventResponse>;
 export type SeatDetail = Required<RawSeatResponse>;
 
-export interface TicketDetail {
-  id: number;
-  productNumber: number;
-  event: EventDetail;
-  seat: SeatDetail;
-  status: boolean;
-  pricePerTicket: number;
-  amount: number;
-  totalPrice: number;
-  createdAt: string;
-}
+export type TicketDetail = Required<TicketResponse>;

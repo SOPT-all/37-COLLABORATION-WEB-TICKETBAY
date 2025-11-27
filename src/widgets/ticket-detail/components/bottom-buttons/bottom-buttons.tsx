@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { TicketbayGlobalButton } from "@widgets/home/components/TicketbayGlobalButton/TicketbayGlobalButton";
 import { BuyButton } from "@widgets/ticket-detail/components/buy-button/buy-button";
 
@@ -7,6 +9,12 @@ import FooterMenu from "@shared/components/footer-menu/footer-menu";
 import * as styles from "./bottom-buttons.css";
 
 const BottomButtons = () => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleCompareButtonClick = () => {
+    setIsActive((prev) => !prev);
+  };
+
   return (
     <section className={styles.container}>
       <FooterMenu />
@@ -22,8 +30,13 @@ const BottomButtons = () => {
 
       <div className={styles.buttonRow}>
         <div className={styles.compareButtonWrapper}>
-          <CompareAddButton size="lg" />
+          <CompareAddButton
+            size="lg"
+            isActive={isActive}
+            onClick={handleCompareButtonClick}
+          />
         </div>
+
         <div className={styles.buyButtonWrapper}>
           <BuyButton />
         </div>

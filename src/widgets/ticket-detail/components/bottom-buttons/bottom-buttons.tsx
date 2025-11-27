@@ -28,11 +28,7 @@ const BottomButtons = () => {
 
       <div className={styles.buttonRow}>
         <div className={styles.compareButtonWrapper}>
-          <CompareAddButton
-            size="lg"
-            isActive={isActive}
-            onClick={handleCompareButtonClick}
-          />
+          <CompareAddButton size="lg" isActive={isActive} onClick={handleCompareButtonClick} />
         </div>
 
         <div className={styles.buyButtonWrapper}>

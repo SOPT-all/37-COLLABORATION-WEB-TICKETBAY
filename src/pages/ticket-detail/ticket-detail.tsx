@@ -1,4 +1,6 @@
-import { useNavigate } from "react-router";
+import { TICKET_QUERY_OPTIONS } from "@entities/ticket/queries/queries";
+import { useQuery } from "@tanstack/react-query";
+import { useNavigate, useParams } from "react-router";
 
 import { ChevronBigLeftIcon, InfoIcon } from "@assets/icons";
 
@@ -16,16 +18,39 @@ import * as styles from "./ticket-detail.css";
 
 const TicketDetail = () => {
   const navigate = useNavigate();
+  const { ticketId } = useParams<{ ticketId: string }>();
 
-  const handleNavigateBack = () => {
-    navigate(-1);
-  };
+  const numericTicketId = Number(ticketId);
+
+  const {
+    data: ticketDetail = null,
+    isLoading,
+    isError,
+  } = useQuery(TICKET_QUERY_OPTIONS.TICKET_DETAIL(numericTicketId));
+
+  const handleNavigateBack = () => navigate(-1);
+
+  if (isLoading) {
+    return (
+      <main className={styles.pageContainer}>
+        <p>티켓 정보를 불러오는 중...</p>
+      </main>
+    );
+  }
+
+  if (isError || !ticketDetail) {
+    return (
+      <main className={styles.pageContainer}>
+        <p>티켓 정보를 불러오는 데 실패했습니다.</p>
+      </main>
+    );
+  }
 
   return (
     <>
       {/* 상단 네비게이션 */}
       <Navigation
-        title="한국시리즈 5차전 [대전]"
+        title={ticketDetail.event?.name || ""}
         leftIcon={<ChevronBigLeftIcon width={24} height={24} />}
         rightIcon={<InfoIcon width={24} height={24} />}
         leftAction={handleNavigateBack}
@@ -34,18 +59,17 @@ const TicketDetail = () => {
       {/* 컨텐츠 영역 */}
       <main className={styles.pageContainer}>
         <div className={styles.ticketInfoOffset}>
-          <TicketInfo />
+          <TicketInfo ticket={ticketDetail} />
         </div>
 
-        <div className={styles.removeGapTop}>
-          <SeatMap />
+        <div className={`${styles.removeGapTop} ${styles.seatMapWrapper}`}>
+          <SeatMap imageSrc={ticketDetail.seat?.seatImageUrl || ""} />
         </div>
 
-        <TicketSummary />
+        <TicketSummary ticket={ticketDetail} />
 
         <SeatMapAccordion />
         <SafetyProgramAccordion />
-
         <DetailTabs />
 
         <div className={styles.removeGapTop}>

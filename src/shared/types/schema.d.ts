@@ -186,6 +186,10 @@ export interface components {
        * @example LG vs 한화
        */
       detailName?: string;
+      /**
+       * @description 베스트 랭킹 여부
+       */
+      isTopRankng?: boolean;
     };
     /** @description 티켓 상세 조회 시 해당 티켓의 좌석 정보 DTO */
     SeatResponse: {

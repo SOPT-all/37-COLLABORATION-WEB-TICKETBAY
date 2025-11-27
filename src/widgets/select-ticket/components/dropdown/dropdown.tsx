@@ -54,13 +54,57 @@ const Dropdown = ({ label, options }: Props) => {
     };
   }, [label, setDropdownRef]);
 
+  const isBottomSheetOpen = (): boolean => {
+    if (!containerRef.current) {
+      return false;
+    }
+
+    let element: HTMLElement | null = containerRef.current;
+    while (element) {
+      const transform = window.getComputedStyle(element).transform;
+      if (transform && transform !== "none") {
+        const translateY = getComputedStyle(element).getPropertyValue("--bottom-sheet-translate");
+        if (translateY) {
+          const translateValue = parseFloat(translateY.trim().replace("px", ""));
+          return !isNaN(translateValue) && translateValue <= 10;
+        }
+        break;
+      }
+      element = element.parentElement;
+    }
+
+    return false;
+  };
+
+  const handleDropdownClick = () => {
+    if (isBottomSheetOpen()) {
+      openDropdown(label);
+    }
+  };
+
+  const handleListEvent = (e: React.MouseEvent | React.TouchEvent) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest("button")) {
+      e.stopPropagation();
+    }
+  };
+
+  const handleItemEvent = (e: React.MouseEvent | React.TouchEvent) => {
+    e.stopPropagation();
+  };
+
+  const handleItemClick = (optionId: string | null) => (e: React.MouseEvent) => {
+    e.stopPropagation();
+    selectOption(label, optionId);
+  };
+
   return (
     <div ref={containerRef} className={styles.container}>
       <button
         ref={buttonRef}
         type="button"
         className={styles.dropdownButton({ isSelected })}
-        onClick={() => openDropdown(label)}
+        onClick={handleDropdownClick}
       >
         <div className={styles.value}>
           <span>{label}</span>
@@ -80,41 +124,16 @@ const Dropdown = ({ label, options }: Props) => {
             ref={dropdownListRef}
             className={styles.dropdownList}
             data-dropdown-list={label}
-            onClick={(e) => {
-              // 버튼이 아닌 경우에만 전파 차단
-              const target = e.target as HTMLElement;
-              if (!target.closest("button")) {
-                e.stopPropagation();
-              }
-            }}
-            onMouseDown={(e) => {
-              // 버튼이 아닌 경우에만 전파 차단
-              const target = e.target as HTMLElement;
-              if (!target.closest("button")) {
-                e.stopPropagation();
-              }
-            }}
-            onTouchStart={(e) => {
-              // 버튼이 아닌 경우에만 전파 차단
-              const target = e.target as HTMLElement;
-              if (!target.closest("button")) {
-                e.stopPropagation();
-              }
-            }}
+            onClick={handleListEvent}
+            onMouseDown={handleListEvent}
+            onTouchStart={handleListEvent}
           >
             <button
               type="button"
               className={styles.dropdownFirstItem}
-              onClick={(e) => {
-                e.stopPropagation();
-                selectOption(label, null);
-              }}
-              onMouseDown={(e) => {
-                e.stopPropagation();
-              }}
-              onTouchStart={(e) => {
-                e.stopPropagation();
-              }}
+              onClick={handleItemClick(null)}
+              onMouseDown={handleItemEvent}
+              onTouchStart={handleItemEvent}
             >
               <CheckSmallIcon width={24} height={24} className={styles.dropdownItemIcon} />
               <span className={styles.dropdownItemLabel}>전체</span>
@@ -125,16 +144,9 @@ const Dropdown = ({ label, options }: Props) => {
                 type="button"
                 key={option.id}
                 className={styles.dropdownItem}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  selectOption(label, option.id);
-                }}
-                onMouseDown={(e) => {
-                  e.stopPropagation();
-                }}
-                onTouchStart={(e) => {
-                  e.stopPropagation();
-                }}
+                onClick={handleItemClick(option.id)}
+                onMouseDown={handleItemEvent}
+                onTouchStart={handleItemEvent}
               >
                 <span className={styles.dropdownItemLabel}>{option.label}</span>
               </button>

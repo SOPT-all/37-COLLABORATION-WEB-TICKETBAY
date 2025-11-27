@@ -11,7 +11,7 @@ const SelectTicket = () => {
   const navigate = useNavigate();
 
   const handleNavigateToTicketDetail = () => {
-    navigate(-1);
+    navigate("/select-ticket");
   };
 
   return (

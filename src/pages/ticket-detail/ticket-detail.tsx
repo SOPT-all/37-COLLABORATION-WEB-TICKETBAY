@@ -15,7 +15,6 @@ import Navigation from "@shared/components/navigation/navigation";
 import * as styles from "./ticket-detail.css";
 
 const TicketDetail = () => {
-  const { ticketId } = useParams();
   const navigate = useNavigate();
 
   const handleNavigateBack = () => {

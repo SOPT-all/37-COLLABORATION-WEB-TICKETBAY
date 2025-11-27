@@ -32,7 +32,7 @@ const BestTicketList = ({ page }: Props) => {
             title={event.name || ""}
             location={event.place || ""}
             isTopRank={rank <= 5}
-            onClick={() => handleTicketClick(event.id)}
+            onClick={rank === 1 ? () => handleTicketClick(event.id) : undefined}
           />
         );
       })}

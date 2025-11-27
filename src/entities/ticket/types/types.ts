@@ -15,4 +15,20 @@ export type GetTicketDetailRequest = paths["/tickets/{ticketId}"]["get"]["parame
 export type GetTicketDetailResponse =
   paths["/tickets/{ticketId}"]["get"]["responses"]["200"]["content"]["*/*"];
 
-export type TicketDetail = Required<TicketResponse>;
+type RawEventResponse = components["schemas"]["EventResponse"];
+type RawSeatResponse = components["schemas"]["SeatResponse"];
+
+export type EventDetail = Required<RawEventResponse>;
+export type SeatDetail = Required<RawSeatResponse>;
+
+export interface TicketDetail {
+  id: number;
+  productNumber: number;
+  event: EventDetail;
+  seat: SeatDetail;
+  status: boolean;
+  pricePerTicket: number;
+  amount: number;
+  totalPrice: number;
+  createdAt: string;
+}

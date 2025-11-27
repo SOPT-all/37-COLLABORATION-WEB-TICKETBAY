@@ -15,10 +15,4 @@ export type GetTicketDetailRequest = paths["/tickets/{ticketId}"]["get"]["parame
 export type GetTicketDetailResponse =
   paths["/tickets/{ticketId}"]["get"]["responses"]["200"]["content"]["*/*"];
 
-type RawEventResponse = components["schemas"]["EventResponse"];
-type RawSeatResponse = components["schemas"]["SeatResponse"];
-
-export type EventDetail = Required<RawEventResponse>;
-export type SeatDetail = Required<RawSeatResponse>;
-
 export type TicketDetail = Required<TicketResponse>;

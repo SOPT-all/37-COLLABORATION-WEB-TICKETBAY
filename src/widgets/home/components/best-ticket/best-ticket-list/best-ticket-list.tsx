@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 
-import BestTicketItem from "@widgets/home/components/best-ticket/best-ticket-item/best-ticket-item";
+import BestTicketItem from "@entities/event/ui/best-ticket-item/best-ticket-item";
 import { EVENT_QUERY_OPTIONS } from "@entities/event/queries/queries";
 import { ROUTE_PATH } from "@shared/router/path";
 

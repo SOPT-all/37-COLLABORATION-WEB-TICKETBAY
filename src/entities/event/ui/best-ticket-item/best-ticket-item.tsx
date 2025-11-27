@@ -24,3 +24,4 @@ const BestTicketItem = ({ rank, title, location, isTopRank, onClick }: Props) =>
 };
 
 export default BestTicketItem;
+

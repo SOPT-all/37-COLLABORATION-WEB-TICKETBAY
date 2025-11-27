@@ -57,3 +57,4 @@ export const location = style({
   ...themeVars.fontStyles.caption2_regular,
   color: themeVars.color.grayscale3,
 });
+

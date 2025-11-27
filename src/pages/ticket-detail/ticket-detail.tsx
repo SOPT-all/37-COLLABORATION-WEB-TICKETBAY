@@ -23,7 +23,7 @@ const TicketDetail = () => {
 
   return (
     <>
-      {/* 상단 공통 네비게이션 */}
+      {/* 상단 네비게이션 */}
       <Navigation
         title="한국시리즈 5차전 [대전]"
         leftIcon={<ChevronBigLeftIcon width={24} height={24} />}

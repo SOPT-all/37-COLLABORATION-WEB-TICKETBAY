@@ -5,9 +5,11 @@ type SeatMapProps = {
 };
 
 const SeatMap = ({ imageSrc }: SeatMapProps) => {
-  const fallbackSrc = imageSrc ?? "/img_seatview_118.webp";
+  if (!imageSrc) {
+    return null;
+  }
 
-  return <img src={fallbackSrc} alt="좌석 배치도" className={styles.seatImage} />;
+  return <img src={imageSrc} alt="좌석 배치도" className={styles.seatImage} />;
 };
 
 export default SeatMap;

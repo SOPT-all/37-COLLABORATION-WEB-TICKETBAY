@@ -1,4 +1,4 @@
-import { TicketbayGlobalButton } from "@widgets/home/components/TicketbayGlobalButton/TicketbayGlobalButton";
+import { TicketbayGlobalButton } from "@widgets/home/components/ticketbay-global-button/ticketbay-global-button";
 
 import { LEGAL_NOTICE } from "@shared/constants/legal-notice";
 

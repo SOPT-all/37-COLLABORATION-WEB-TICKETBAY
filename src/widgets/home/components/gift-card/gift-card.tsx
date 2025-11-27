@@ -25,19 +25,21 @@ const GiftCard = () => {
             ))}
           </Tab.List>
           <div className={styles.list}>
-            <Tab.Panel value={TAB[0].id}>
-              {GIFT_CARD_LIST.map((item) => (
-                <GiftCardItem
-                  key={item.id}
-                  imageUrl={item.imageUrl}
-                  brandName={item.brand}
-                  productTitle={item.title}
-                  originalPrice={item.originalPrice}
-                  discountRate={item.saleRate}
-                  salePrice={item.salePrice}
-                />
-              ))}
-            </Tab.Panel>
+            {TAB.map((tab) => (
+              <Tab.Panel key={tab.id} value={tab.id}>
+                {GIFT_CARD_LIST.map((item) => (
+                  <GiftCardItem
+                    key={item.id}
+                    imageUrl={item.imageUrl}
+                    brandName={item.brand}
+                    productTitle={item.title}
+                    originalPrice={item.originalPrice}
+                    discountRate={item.saleRate}
+                    salePrice={item.salePrice}
+                  />
+                ))}
+              </Tab.Panel>
+            ))}
           </div>
         </Tab.Container>
       </div>

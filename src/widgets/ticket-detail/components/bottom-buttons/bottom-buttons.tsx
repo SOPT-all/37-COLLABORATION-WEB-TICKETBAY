@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { TicketbayGlobalButton } from "@widgets/home/components/TicketbayGlobalButton/TicketbayGlobalButton";
+import { TicketbayGlobalButton } from "@widgets/home/components/ticketbay-global-button/ticketbay-global-button";
 import { BuyButton } from "@widgets/ticket-detail/components/buy-button/buy-button";
 
 import CompareAddButton from "@shared/components/compare-add-button/compare-add-button";

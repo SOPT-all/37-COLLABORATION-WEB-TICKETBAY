@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router";
-import { useQuery } from "@tanstack/react-query";
-
-import BestTicketItem from "@entities/event/ui/best-ticket-item/best-ticket-item";
 import { EVENT_QUERY_OPTIONS } from "@entities/event/queries/queries";
+import BestTicketItem from "@entities/event/ui/best-ticket-item/best-ticket-item";
+import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router";
+
 import { ROUTE_PATH } from "@shared/router/path";
 
 import * as styles from "./best-ticket-list.css";
@@ -15,7 +15,9 @@ interface Props {
 
 const BestTicketList = ({ page }: Props) => {
   const navigate = useNavigate();
-  const { data: events = [] } = useQuery(EVENT_QUERY_OPTIONS.TOP_EVENTS(page, BEST_TICKET_PAGE_SIZE));
+  const { data: events = [] } = useQuery(
+    EVENT_QUERY_OPTIONS.TOP_EVENTS(page, BEST_TICKET_PAGE_SIZE),
+  );
 
   const handleTicketClick = (eventId?: number) => {
     if (eventId) {

@@ -11,6 +11,7 @@ export const container = recipe({
     padding: "1rem 1rem 1rem 0.8rem",
     gap: "1.4rem",
     borderBottom: `1px solid ${themeVars.color.grayscale6}`,
+    cursor: "pointer",
   },
   variants: {
     isTight: {

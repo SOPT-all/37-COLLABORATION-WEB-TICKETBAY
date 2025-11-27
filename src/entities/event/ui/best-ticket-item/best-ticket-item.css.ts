@@ -21,6 +21,14 @@ export const container = recipe({
         gap: "1.2rem",
       },
     },
+    clickable: {
+      true: {
+        cursor: "pointer",
+      },
+      false: {
+        cursor: "default",
+      },
+    },
   },
 });
 
@@ -49,3 +57,4 @@ export const location = style({
   ...themeVars.fontStyles.caption2_regular,
   color: themeVars.color.grayscale3,
 });
+

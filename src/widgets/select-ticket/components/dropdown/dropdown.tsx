@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 
 import { CheckSmallIcon, ChevronSmallDownIcon } from "@assets/icons";
 
@@ -72,29 +73,75 @@ const Dropdown = ({ label, options }: Props) => {
         />
       </button>
 
-      {currentIsOpen && dropdownPosition && (
-        <div ref={dropdownListRef} className={styles.dropdownList}>
-          <button
-            type="button"
-            className={styles.dropdownFirstItem}
-            onClick={() => selectOption(label, null)}
+      {currentIsOpen &&
+        dropdownPosition &&
+        createPortal(
+          <div
+            ref={dropdownListRef}
+            className={styles.dropdownList}
+            data-dropdown-list={label}
+            onClick={(e) => {
+              // 버튼이 아닌 경우에만 전파 차단
+              const target = e.target as HTMLElement;
+              if (!target.closest("button")) {
+                e.stopPropagation();
+              }
+            }}
+            onMouseDown={(e) => {
+              // 버튼이 아닌 경우에만 전파 차단
+              const target = e.target as HTMLElement;
+              if (!target.closest("button")) {
+                e.stopPropagation();
+              }
+            }}
+            onTouchStart={(e) => {
+              // 버튼이 아닌 경우에만 전파 차단
+              const target = e.target as HTMLElement;
+              if (!target.closest("button")) {
+                e.stopPropagation();
+              }
+            }}
           >
-            <CheckSmallIcon width={24} height={24} className={styles.dropdownItemIcon} />
-            <span className={styles.dropdownItemLabel}>전체</span>
-          </button>
-
-          {options.map((option) => (
             <button
               type="button"
-              key={option.id}
-              className={styles.dropdownItem}
-              onClick={() => selectOption(label, option.id)}
+              className={styles.dropdownFirstItem}
+              onClick={(e) => {
+                e.stopPropagation();
+                selectOption(label, null);
+              }}
+              onMouseDown={(e) => {
+                e.stopPropagation();
+              }}
+              onTouchStart={(e) => {
+                e.stopPropagation();
+              }}
             >
-              <span className={styles.dropdownItemLabel}>{option.label}</span>
+              <CheckSmallIcon width={24} height={24} className={styles.dropdownItemIcon} />
+              <span className={styles.dropdownItemLabel}>전체</span>
             </button>
-          ))}
-        </div>
-      )}
+
+            {options.map((option) => (
+              <button
+                type="button"
+                key={option.id}
+                className={styles.dropdownItem}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  selectOption(label, option.id);
+                }}
+                onMouseDown={(e) => {
+                  e.stopPropagation();
+                }}
+                onTouchStart={(e) => {
+                  e.stopPropagation();
+                }}
+              >
+                <span className={styles.dropdownItemLabel}>{option.label}</span>
+              </button>
+            ))}
+          </div>,
+          document.body,
+        )}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { BuyButton } from "@widgets/ticket-detail/components/buy-button/buy-butt
 
 import CompareAddButton from "@shared/components/compare-add-button/compare-add-button";
 import FooterMenu from "@shared/components/footer-menu/footer-menu";
+import { LEGAL_NOTICE } from "@shared/constants/legal-notice";
 
 import * as styles from "./bottom-buttons.css";
 
@@ -19,10 +20,7 @@ const BottomButtons = () => {
     <section className={styles.container}>
       <FooterMenu />
 
-      <p className={styles.notice}>
-        티켓베이는 통신판매 중개자이며, 통신판매의 당사자가 아닙니다. <br /> 따라서 티켓베이는 상품거래정보 및
-        거래에 대하여 책임을 지지 않습니다.
-      </p>
+      <p className={styles.notice}>{LEGAL_NOTICE}</p>
 
       <div className={styles.globalButtonWrapper}>
         <TicketbayGlobalButton />

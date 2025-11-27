@@ -11,6 +11,7 @@ export const notice = style({
   ...themeVars.fontStyles.caption1_regular,
   color: themeVars.color.grayscale3,
   padding: "1.6rem",
+  whiteSpace: "pre-line",
 });
 
 // Ticketbay Global 버튼 wrapper

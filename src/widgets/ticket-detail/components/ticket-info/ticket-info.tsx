@@ -1,15 +1,21 @@
+import type { TicketDetail } from "@entities/ticket/types/types";
+
 import { ChevronSmallRightIcon } from "@assets/icons";
 
-import { MOCK_TICKET_INFO } from "@widgets/ticket-detail/constants/ticket-info.mock";
+import { formatDateToDot } from "@shared/utils/format-date-to-dot";
 
 import * as styles from "./ticket-info.css";
 
-export const TicketInfo = () => {
-  const data = MOCK_TICKET_INFO;
+interface TicketInfoProps {
+  ticket: TicketDetail;
+}
 
-  // "스포츠 > 2025 프로야구 포스트시즌 > 한국시리즈 5차전 [대전]"
-  // 을 ["스포츠", "2025 프로야구 포스트시즌", "한국시리즈 5차전 [대전]"] 로 분리
-  const breadcrumbItems = data.breadcrumb.split(">").map((item) => item.trim());
+export const TicketInfo = ({ ticket }: TicketInfoProps) => {
+  const { productNumber, event, seat } = ticket;
+
+  const breadcrumbItems = [event.mainCategory, event.subCategory, event.name];
+
+  const mainTitle = `${event.detailName} | ${seat.area}구역 | ${seat.seatColumn}열`;
 
   return (
     <section className={styles.container}>
@@ -18,12 +24,13 @@ export const TicketInfo = () => {
         <p className={styles.sectionTitle}>상품 정보</p>
         <p className={styles.productNumber}>
           <span className={styles.productNumberLabel}>상품번호</span>
-          <span className={styles.productNumberValue}>{data.productNumber}</span>
+          <span className={styles.productNumberValue}>{productNumber}</span>
         </p>
       </div>
 
       {/* 하단 내용 */}
       <div className={styles.content}>
+        {/* breadcrumb */}
         <p className={styles.breadcrumb}>
           {breadcrumbItems.map((item, index) => (
             <span key={`${item}-${index}`} className={styles.breadcrumbItem}>
@@ -33,19 +40,22 @@ export const TicketInfo = () => {
           ))}
         </p>
 
+        {/* 경기 일시 / 장소 */}
         <div className={styles.metaBlock}>
           <p className={styles.metaRow}>
             <span className={styles.metaLabel}>경기 일시</span>
-            <span className={styles.metaValue}>{data.date}</span>
+            <span className={styles.metaValue}>{formatDateToDot(event.date)}</span>
           </p>
+
           <p className={styles.metaRow}>
             <span className={styles.metaLabel}>경기 장소</span>
-            <span className={styles.metaValue}>{data.location}</span>
+            <span className={styles.metaValue}>{event.place}</span>
           </p>
         </div>
 
-        <p className={styles.mainTitle}>{data.title}</p>
-        <p className={styles.seatType}>{data.seatType}</p>
+        {/* 메인 제목 및 좌석 타입 */}
+        <p className={styles.mainTitle}>{mainTitle}</p>
+        <p className={styles.seatType}>{seat.seatType}</p>
       </div>
     </section>
   );

@@ -21,7 +21,7 @@ const TicketDetail = () => {
   const { ticketId } = useParams<{ ticketId: string }>();
   const numericTicketId = Number(ticketId);
 
-  const { data: ticketDetail = null } = useQuery(
+  const { data: ticketDetail = null, isLoading } = useQuery(
     TICKET_QUERY_OPTIONS.TICKET_DETAIL(numericTicketId),
   );
 

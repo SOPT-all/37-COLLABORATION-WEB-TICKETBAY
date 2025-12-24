@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { TICKET_QUERY_KEY } from "@entities/ticket/queries/query-key";
 import type { TicketResponse } from "@entities/ticket/types/types";
 
 import CompareAddButton from "@shared/components/compare-add-button/compare-add-button";
+import { queryClient } from "@shared/query/query-client";
 import { formatDateToDot } from "@shared/utils/format-date-to-dot";
 import { formatPriceToKorean } from "@shared/utils/format-price-to-korean";
 
@@ -9,21 +11,12 @@ import * as styles from "./ticket-option-card.css";
 
 const DELIMITER = " | ";
 
-interface Props extends TicketResponse {
+interface Props {
+  id: number;
   onClickCard?: () => void;
 }
 
-const TicketOptionCard = ({
-  onClickCard,
-  date,
-  detailName,
-  area,
-  seatColumn,
-  seatType,
-  seatPosition,
-  amount,
-  price,
-}: Props) => {
+const TicketOptionCard = ({ onClickCard, id }: Props) => {
   const [isCompareButtonActive, setIsCompareButtonActive] = useState(false);
 
   const handleCompareButtonClick = (e: React.MouseEvent) => {
@@ -41,12 +34,24 @@ const TicketOptionCard = ({
     onClickCard?.();
   };
 
+  const cachedData = queryClient.getQueryData<TicketResponse>(TICKET_QUERY_KEY.DETAIL(id));
+
+  const isTicketResponse = (data: typeof cachedData): data is TicketResponse => {
+    return data !== undefined && "date" in data && "detailName" in data;
+  };
+
+  const ticket = isTicketResponse(cachedData) ? cachedData : null;
+
+  if (!ticket) {
+    return null;
+  }
+
   return (
     <div className={styles.container} onClick={handleCardClick}>
       <div className={styles.matchDateContainer}>
         <div className={styles.matchDateContent}>
           <p className={styles.matchDateContentTitle}>경기 일시</p>
-          <p className={styles.matchDateContentValue}>{formatDateToDot(date!)}</p>
+          <p className={styles.matchDateContentValue}>{formatDateToDot(ticket.date!)}</p>
         </div>
         <CompareAddButton
           size="sm"
@@ -57,34 +62,34 @@ const TicketOptionCard = ({
 
       <div className={styles.matchInfo}>
         <span>
-          {detailName}
+          {ticket.detailName}
           {DELIMITER}
         </span>
         <span>
-          {area}구역{DELIMITER}
+          {ticket.area}구역{DELIMITER}
         </span>
-        <span>{seatColumn}열</span>
+        <span>{ticket.seatColumn}열</span>
       </div>
 
       <div className={styles.seatType}>
         <span>
-          {seatType}
+          {ticket.seatType}
           {DELIMITER}
         </span>
-        <span>{seatPosition}</span>
+        <span>{ticket.seatPosition}</span>
       </div>
 
       <div className={styles.amountContainer}>
         <div className={styles.chip}>PIN</div>
         <div className={styles.amountContent}>
           <p className={styles.amountTitle}>수량</p>
-          <p className={styles.amountValue}>{amount}매</p>
+          <p className={styles.amountValue}>{ticket.amount}매</p>
         </div>
       </div>
 
       <div className={styles.priceContainer}>
         <p className={styles.priceTitle}>한 매 가격</p>
-        <p className={styles.priceValue}>{formatPriceToKorean(price!)}원</p>
+        <p className={styles.priceValue}>{formatPriceToKorean(ticket.price!)}원</p>
       </div>
     </div>
   );
